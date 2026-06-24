@@ -18,7 +18,7 @@ body{font-family:var(--font-ui);background:var(--bg);color:var(--ink);font-size:
 .topbar-brand svg{width:28px;height:28px;opacity:.9}
 .topbar-title{font-family:var(--font-head);font-size:1.15rem;font-weight:700;letter-spacing:.01em}
 .topbar-sub{font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;opacity:.75;margin-top:1px}
-.topbar-btns{display:flex;gap:8px}
+.topbar-btns{display:flex;gap:8px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-ui);font-size:.78rem;font-weight:600;padding:8px 14px;border-radius:6px;border:none;cursor:pointer;transition:all .15s}
 .btn svg{width:14px;height:14px}
 .btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.45)}
@@ -27,29 +27,62 @@ body{font-family:var(--font-ui);background:var(--bg);color:var(--ink);font-size:
 .btn-white:hover{background:var(--green-light)}
 .btn-gold{background:var(--gold);color:#fff}
 .btn-gold:hover{background:#a07309}
-.workspace{display:grid;grid-template-columns:380px 1fr;height:calc(100vh - 56px)}
+.workspace{display:grid;grid-template-columns:400px 1fr;height:calc(100vh - 56px)}
 .editor{background:var(--paper);border-right:1px solid var(--border);overflow-y:auto}
 .editor-inner{padding:20px 20px 60px}
 .section{padding:16px 0 20px;border-bottom:1px solid var(--border)}
 .section:last-child{border-bottom:none}
 .sec-title{display:flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--green);margin-bottom:14px}
 .sec-title::before{content:'';width:3px;height:14px;background:var(--gold);border-radius:2px;flex-shrink:0}
+.sec-icon{font-size:.9rem}
 .field{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}
 .field label{font-size:.7rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3)}
 .field input,.field select,.field textarea{border:1px solid var(--border);border-radius:5px;padding:8px 10px;font-size:.88rem;font-family:var(--font-ui);color:var(--ink);background:#f9fbfb;outline:none;transition:border-color .15s,box-shadow .15s}
 .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--green-mid);background:#fff;box-shadow:0 0 0 3px rgba(34,117,106,.1)}
 .field .hint{font-size:.68rem;color:var(--ink-3);font-style:italic}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
 .logo-upload-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:2px}
 .logo-fname{font-size:.7rem;color:var(--ink-3);font-style:italic}
-.booking-head{display:grid;grid-template-columns:1.2fr 1fr 1fr .6fr 1fr .5fr .5fr .7fr 22px;gap:5px;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);padding:0 4px 5px}
+
+/* Hotel Section Cards */
+.hotel-card{background:#f5f9f8;border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:12px}
+.hotel-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.hotel-card-title.makkah{color:#1a5c52}
+.hotel-card-title.madinah{color:#6b4c10}
+.hotel-card-title.transport{color:#2c3e6b}
+.toggle-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.toggle-label{font-size:.72rem;font-weight:600;color:var(--ink-2)}
+.toggle{position:relative;display:inline-block;width:38px;height:20px}
+.toggle input{opacity:0;width:0;height:0}
+.toggle-slider{position:absolute;cursor:pointer;inset:0;background:#ccc;border-radius:20px;transition:.3s}
+.toggle-slider::before{content:'';position:absolute;height:14px;width:14px;left:3px;bottom:3px;background:white;border-radius:50%;transition:.3s}
+input:checked+.toggle-slider{background:var(--green)}
+input:checked+.toggle-slider::before{transform:translateX(18px)}
+
+/* Booking rows */
+.booking-head-mak{display:grid;grid-template-columns:1.4fr 1fr 1fr .6fr 1.2fr .5fr .5fr .7fr 22px;gap:5px;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);padding:0 4px 5px}
 .rows-list{display:flex;flex-direction:column;gap:7px}
-.row-card{display:grid;grid-template-columns:1.2fr 1fr 1fr .6fr 1fr .5fr .5fr .7fr 22px;gap:5px;align-items:center;background:#f5f9f8;border:1px solid var(--border);border-radius:6px;padding:7px 5px}
-.row-card input{width:100%;border:1px solid var(--border);border-radius:4px;padding:5px;font-size:.76rem;background:#fff;outline:none;min-width:0}
-.row-card input:focus{border-color:var(--green-mid)}
+.row-card-mak{display:grid;grid-template-columns:1.4fr 1fr 1fr .6fr 1.2fr .5fr .5fr .7fr 22px;gap:5px;align-items:center;background:#fff;border:1px solid var(--border);border-radius:6px;padding:7px 5px}
+.row-card-mak input,.row-card-mak select{width:100%;border:1px solid var(--border);border-radius:4px;padding:5px;font-size:.76rem;background:#fff;outline:none;min-width:0}
+.row-card-mak input:focus,.row-card-mak select:focus{border-color:var(--green-mid)}
 .row-del{background:none;border:none;cursor:pointer;color:var(--ink-3);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .15s}
 .row-del:hover{background:#fce8e8;color:#b03030}
 .row-del svg{width:12px;height:12px}
+
+/* Transport rows */
+.transport-row{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 22px;gap:5px;align-items:center;background:#fff;border:1px solid var(--border);border-radius:6px;padding:7px 5px;margin-bottom:6px}
+.transport-row input,.transport-row select{width:100%;border:1px solid var(--border);border-radius:4px;padding:5px;font-size:.76rem;background:#fff;outline:none;min-width:0}
+.transport-row input:focus,.transport-row select:focus{border-color:#2c3e6b}
+.transport-head{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 22px;gap:5px;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);padding:0 4px 5px}
+
+/* Passengers */
+.pax-row{background:#fff;border:1px solid var(--border);border-radius:6px;padding:8px;margin-bottom:8px}
+.pax-row-top{display:grid;grid-template-columns:2fr 1.5fr 1fr 22px;gap:6px;align-items:center;margin-bottom:0}
+.pax-row-top input,.pax-row-top select{width:100%;border:1px solid var(--border);border-radius:4px;padding:5px;font-size:.76rem;background:#fff;outline:none;min-width:0}
+.pax-num{font-size:.65rem;font-weight:700;background:var(--green);color:#fff;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pax-head{display:grid;grid-template-columns:2fr 1.5fr 1fr 22px;gap:6px;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);padding:0 4px 5px}
+
 .terms-list{display:flex;flex-direction:column;gap:7px}
 .term-card{display:flex;gap:7px;align-items:flex-start;background:#f5f9f8;border:1px solid var(--border);border-radius:6px;padding:7px}
 .term-card textarea{flex:1;resize:vertical;border:1px solid var(--border);border-radius:4px;padding:6px 8px;font-size:.82rem;font-family:var(--font-ui);background:#fff;outline:none;min-height:36px}
@@ -86,13 +119,27 @@ body{font-family:var(--font-ui);background:var(--bg);color:var(--ink);font-size:
 .v-sec-head{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--green);margin-bottom:10px;display:flex;align-items:center;gap:8px}
 .v-sec-head::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0}
 .v-sec-head::after{content:'';flex:1;height:1px;background:var(--border)}
-.v-table{width:100%;border-collapse:collapse;margin-bottom:22px;font-size:.78rem}
-.v-table thead th{background:var(--green);color:#fff;font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:9px 8px;text-align:left}
+.v-city-badge{display:inline-flex;align-items:center;gap:4px;font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:10px;margin-left:8px;text-transform:uppercase;letter-spacing:.05em}
+.v-city-badge.makkah{background:#d6ece9;color:#1a5c52}
+.v-city-badge.madinah{background:#fdf0d6;color:#7a5010}
+.v-city-badge.transport{background:#dde2f5;color:#2c3e6b}
+.v-table{width:100%;border-collapse:collapse;margin-bottom:16px;font-size:.76rem}
+.v-table thead th{background:var(--green);color:#fff;font-size:.63rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:8px 7px;text-align:left}
 .v-table thead th:first-child{border-radius:6px 0 0 0}
 .v-table thead th:last-child{border-radius:0 6px 0 0}
-.v-table tbody td{padding:8px;border-bottom:1px solid var(--border);color:var(--ink-2)}
+.v-table tbody td{padding:7px;border-bottom:1px solid var(--border);color:var(--ink-2);font-size:.76rem}
 .v-table tbody tr:nth-child(even){background:#f5f9f8}
+.v-table-transport thead{background-color:#2c3e6b}
+.v-table-transport thead th{background:#2c3e6b}
+.v-table-madinah thead th{background:#7a5010}
 .hcn{font-weight:700;color:var(--gold)}
+.v-pax-table{width:100%;border-collapse:collapse;margin-bottom:22px;font-size:.76rem}
+.v-pax-table thead th{background:#2a4a42;color:#fff;font-size:.63rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:8px 7px;text-align:left}
+.v-pax-table thead th:first-child{border-radius:6px 0 0 0}
+.v-pax-table thead th:last-child{border-radius:0 6px 0 0}
+.v-pax-table tbody td{padding:7px;border-bottom:1px solid var(--border);color:var(--ink-2)}
+.v-pax-table tbody tr:nth-child(even){background:#f5f9f8}
+.passport-no{font-family:monospace;font-size:.78rem;color:var(--ink);font-weight:600;letter-spacing:.04em}
 .v-terms{padding-left:18px;margin-bottom:20px}
 .v-terms li{font-size:.8rem;color:var(--ink-2);line-height:1.65;margin-bottom:5px}
 .v-divider{height:1px;background:var(--border);margin:18px 0}
@@ -109,11 +156,11 @@ body{font-family:var(--font-ui);background:var(--bg);color:var(--ink);font-size:
 .panel-card{width:794px;background:var(--paper);border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,.1);padding:20px 24px;flex-shrink:0}
 .panel-card h3{font-family:var(--font-head);font-size:1rem;color:var(--green);margin-bottom:10px;display:flex;align-items:center;gap:8px}
 .panel-card h3 svg{width:18px;height:18px}
-.panel-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-.panel-row input{flex:1;border:1px solid var(--border);border-radius:5px;padding:8px 10px;font-size:.82rem;background:#f9fbfb;font-family:'Inter',monospace}
 .panel-note{font-size:.78rem;color:var(--ink-3);line-height:1.6;margin-top:8px;padding:10px 12px;background:#fffdf5;border-left:3px solid var(--gold);border-radius:0 6px 6px 0}
 .panel-note b{color:var(--green)}
 .panel-note code{background:#eef3f1;padding:1px 5px;border-radius:3px;font-size:.76rem}
+.hidden{display:none!important}
+
 @media print{
   @page{size:A4;margin:0}
   body *{visibility:hidden}
@@ -124,11 +171,12 @@ body{font-family:var(--font-ui);background:var(--bg);color:var(--ink);font-size:
   .v-table{font-size:8pt}
   .v-table thead th{padding:5px}
   .v-table tbody td{padding:4px 5px}
+  .v-pax-table{font-size:8pt}
   .v-meta{padding:8px 12px}
   .v-bar,.v-footer{height:4px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .v-table thead{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .v-table thead,.v-pax-table thead,.v-table-madinah thead,.v-table-transport thead{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
-@media(max-width:900px){.workspace{grid-template-columns:1fr;height:auto}.editor{max-height:55vh}.preview{padding:16px}.voucher,.panel-card{width:100%;min-height:auto;padding:28px 20px 36px}.booking-head{display:none}.row-card{grid-template-columns:1fr 1fr;grid-auto-rows:auto}.row-card .row-del{grid-column:span 2;justify-self:end}}
+@media(max-width:900px){.workspace{grid-template-columns:1fr;height:auto}.editor{max-height:55vh}.preview{padding:16px}.voucher,.panel-card{width:100%;min-height:auto;padding:28px 20px 36px}}
 button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--green-mid);outline-offset:2px}
 </style>
 </head>
@@ -140,14 +188,15 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
   </div>
   <div class="topbar-btns">
     <button class="btn btn-outline" id="newBtn">New</button>
-    <button class="btn btn-gold" id="downloadTrackBtn">Download Tracking Page</button>
-    <button class="btn btn-white" id="printBtn">Print / PDF</button>
+    <button class="btn btn-gold" id="downloadTrackBtn">⬇ Download Tracking Page</button>
+    <button class="btn btn-white" id="printBtn">🖨 Print / PDF</button>
   </div>
 </header>
 
 <div class="workspace">
   <aside class="editor"><div class="editor-inner">
 
+    <!-- Agency -->
     <div class="section">
       <div class="sec-title">Agency Letterhead</div>
       <div class="field"><label>Agency Name</label><input id="agencyName" value="KARWAN E MARHABA TRAVEL &amp; TOURS"></div>
@@ -163,15 +212,17 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
       </div>
     </div>
 
+    <!-- Tracking URL -->
     <div class="section">
       <div class="sec-title">Tracking Page Link</div>
       <div class="field">
         <label>Your hosting web address</label>
         <input id="baseUrl" placeholder="e.g. https://yourname.github.io/vouchers/" value="">
-        <span class="hint">Once you publish your tracking pages online (see instructions below the preview), paste that web address here. Leave empty to test with a sample link.</span>
+        <span class="hint">Paste your GitHub Pages address here. Leave empty for sample link.</span>
       </div>
     </div>
 
+    <!-- Voucher Info -->
     <div class="section">
       <div class="sec-title">Voucher Info</div>
       <div class="row2"><div class="field"><label>Date</label><input type="date" id="vDate"></div><div class="field"><label>Voucher No.</label><input id="vNo" value="22588"></div></div>
@@ -181,29 +232,94 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
       </div>
     </div>
 
+    <!-- Guest -->
     <div class="section">
-      <div class="sec-title">Guest &amp; Hotel</div>
-      <div class="field"><label>Guest Name</label><input id="guestName" value="Syed Muhammad Minhajuddin"></div>
-      <div class="row2">
-        <div class="field"><label>Nationality</label><input id="nationality" value="Pakistan"></div>
-        <div class="field"><label>City</label><select id="city"><option>Makkah</option><option>Madinah</option><option>Jeddah</option><option>Taif</option></select></div>
+      <div class="sec-title">Guest Info</div>
+      <div class="field"><label>Group / Lead Guest Name</label><input id="guestName" value="Syed Muhammad Minhajuddin"></div>
+      <div class="field"><label>Nationality</label><input id="nationality" value="Pakistan"></div>
+    </div>
+
+    <!-- Passengers -->
+    <div class="section">
+      <div class="sec-title">👥 Passengers &amp; Passports</div>
+      <div class="pax-head"><span>Name</span><span>Passport No.</span><span>Type</span><span></span></div>
+      <div id="paxList"></div>
+      <button class="btn-add" id="addPax">
+        <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        Add Passenger
+      </button>
+    </div>
+
+    <!-- Makkah Hotel -->
+    <div class="section">
+      <div class="sec-title">🕋 Makkah Hotel</div>
+      <div class="hotel-card">
+        <div class="toggle-row">
+          <label class="toggle"><input type="checkbox" id="makkahEnabled" checked><span class="toggle-slider"></span></label>
+          <span class="toggle-label">Include Makkah Hotel</span>
+        </div>
+        <div id="makkahFields">
+          <div class="field"><label>Hotel Name</label><input id="makkahHotel" value="Fajr Al Badea 4"></div>
+          <div class="booking-head-mak"><span>HCN</span><span>Check-in</span><span>Check-out</span><span>Nts</span><span>Room Type</span><span>Pax</span><span>Rms</span><span>Meal</span><span></span></div>
+          <div id="makkahRowsList" class="rows-list"></div>
+          <button class="btn-add" id="addMakkahRow">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            Add Makkah Booking Row
+          </button>
+        </div>
       </div>
-      <div class="field"><label>Hotel Name</label><input id="hotelName" value="Fajr Al Badea 4"></div>
     </div>
 
+    <!-- Madinah Hotel -->
     <div class="section">
-      <div class="sec-title">Booking Rows</div>
-      <div class="booking-head"><span>HCN</span><span>Check-in</span><span>Check-out</span><span>Nts</span><span>Room</span><span>Pax</span><span>Rms</span><span>Meal</span><span></span></div>
-      <div id="rowsList" class="rows-list"></div>
-      <button class="btn-add" id="addRow">Add Row</button>
+      <div class="sec-title">🕌 Madinah Hotel</div>
+      <div class="hotel-card">
+        <div class="toggle-row">
+          <label class="toggle"><input type="checkbox" id="madinahEnabled"><span class="toggle-slider"></span></label>
+          <span class="toggle-label">Include Madinah Hotel</span>
+        </div>
+        <div id="madinahFields" class="hidden">
+          <div class="field"><label>Hotel Name</label><input id="madinahHotel" value=""></div>
+          <div class="booking-head-mak"><span>HCN</span><span>Check-in</span><span>Check-out</span><span>Nts</span><span>Room Type</span><span>Pax</span><span>Rms</span><span>Meal</span><span></span></div>
+          <div id="madinahRowsList" class="rows-list"></div>
+          <button class="btn-add" id="addMadinahRow">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            Add Madinah Booking Row
+          </button>
+        </div>
+      </div>
     </div>
 
+    <!-- Transport -->
+    <div class="section">
+      <div class="sec-title">🚌 Transport</div>
+      <div class="hotel-card">
+        <div class="toggle-row">
+          <label class="toggle"><input type="checkbox" id="transportEnabled"><span class="toggle-slider"></span></label>
+          <span class="toggle-label">Include Transport</span>
+        </div>
+        <div id="transportFields" class="hidden">
+          <div class="transport-head"><span>Route / Description</span><span>Date</span><span>Time</span><span>Type</span><span></span></div>
+          <div id="transportList"></div>
+          <button class="btn-add" id="addTransport">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            Add Transport Row
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Terms -->
     <div class="section">
       <div class="sec-title">Terms &amp; Conditions</div>
       <div id="termsList" class="terms-list"></div>
-      <button class="btn-add" id="addTerm">Add Term</button>
+      <button class="btn-add" id="addTerm">
+        <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        Add Term
+      </button>
     </div>
 
+    <!-- Contact -->
     <div class="section">
       <div class="sec-title">Contact &amp; Sign-off</div>
       <div class="field"><label>Contact Heading</label><input id="contactHead" value="Contact (Only For Makkah Staff)"></div>
@@ -231,29 +347,59 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
         </div>
         <div class="v-stamp" id="o-status">Confirmed</div>
       </header>
-      <div class="v-title">Guest Hotel Voucher</div>
+
+      <div class="v-title">Guest Voucher</div>
       <div class="v-title-line"></div>
+
       <div class="v-meta">
         <div class="v-meta-item"><div class="v-meta-key">Date</div><div class="v-meta-val" id="o-date">—</div></div>
         <div class="v-meta-item"><div class="v-meta-key">To</div><div class="v-meta-val" id="o-to">Zain</div></div>
         <div class="v-meta-item"><div class="v-meta-key">Voucher No.</div><div class="v-meta-val" id="o-vno">22588</div></div>
       </div>
-      <div class="v-greeting"><span class="arabic">السلام علیکم</span>Thank you for your booking, please find the below booking details for your kind perusal.</div>
+
+      <div class="v-greeting">
+        <span class="arabic">السلام علیکم</span>
+        Thank you for your booking, please find the below booking details for your kind perusal.
+      </div>
+
       <div class="v-info-grid">
         <div class="v-info-item"><div class="v-info-key">Guest Name</div><div class="v-info-val" id="o-guest">Syed Muhammad Minhajuddin</div></div>
         <div class="v-info-item"><div class="v-info-key">Nationality</div><div class="v-info-val" id="o-nat">Pakistan</div></div>
-        <div class="v-info-item"><div class="v-info-key">Hotel Name</div><div class="v-info-val" id="o-hotel">Fajr Al Badea 4</div></div>
-        <div class="v-info-item"><div class="v-info-key">City</div><div class="v-info-val" id="o-city">Makkah</div></div>
       </div>
-      <div class="v-sec-head">Booking Details</div>
-      <table class="v-table"><thead><tr><th>#</th><th>HCN</th><th>Check-in</th><th>Check-out</th><th>Nights</th><th>Room Type</th><th>Pax</th><th>Rooms</th><th>Meal</th></tr></thead><tbody id="o-tbody"></tbody></table>
+
+      <!-- Passengers Preview -->
+      <div id="o-pax-section">
+        <div class="v-sec-head">Passengers <span class="v-city-badge" style="background:#eef3f1;color:#2a4a42">Passport Details</span></div>
+        <table class="v-pax-table"><thead><tr><th>#</th><th>Passenger Name</th><th>Passport No.</th><th>Type</th></tr></thead><tbody id="o-pax-tbody"></tbody></table>
+      </div>
+
+      <!-- Makkah Hotel Preview -->
+      <div id="o-makkah-section">
+        <div class="v-sec-head">🕋 Makkah Hotel<span class="v-city-badge makkah" id="o-makkahHotelName">Hotel Name</span></div>
+        <table class="v-table"><thead><tr><th>#</th><th>HCN</th><th>Check-in</th><th>Check-out</th><th>Nights</th><th>Room Type</th><th>Pax</th><th>Rooms</th><th>Meal</th></tr></thead><tbody id="o-makkah-tbody"></tbody></table>
+      </div>
+
+      <!-- Madinah Hotel Preview -->
+      <div id="o-madinah-section" class="hidden">
+        <div class="v-sec-head">🕌 Madinah Hotel<span class="v-city-badge madinah" id="o-madinahHotelName">Hotel Name</span></div>
+        <table class="v-table v-table-madinah"><thead><tr><th>#</th><th>HCN</th><th>Check-in</th><th>Check-out</th><th>Nights</th><th>Room Type</th><th>Pax</th><th>Rooms</th><th>Meal</th></tr></thead><tbody id="o-madinah-tbody"></tbody></table>
+      </div>
+
+      <!-- Transport Preview -->
+      <div id="o-transport-section" class="hidden">
+        <div class="v-sec-head">🚌 Transport Details</div>
+        <table class="v-table v-table-transport"><thead><tr><th>#</th><th>Route / Description</th><th>Date</th><th>Time</th><th>Type</th></tr></thead><tbody id="o-transport-tbody"></tbody></table>
+      </div>
+
       <div class="v-sec-head">Terms &amp; Conditions</div>
       <ol class="v-terms" id="o-terms"></ol>
+
       <div class="v-divider"></div>
       <div class="v-contact-head" id="o-contactHead">Contact (Only For Makkah Staff)</div>
       <div class="v-contact-val"><span id="o-contactName">Haris</span>: <span id="o-contactNum">0580652033</span></div>
       <div class="v-closing" id="o-closing">Thank You and Best Regards</div>
       <div class="v-closing2" id="o-closing2"></div>
+
       <div class="v-qr-block">
         <div class="qrbox" id="qrPreview"></div>
         <div class="v-qr-text">Scan this code to view and verify your booking online, anytime.<br><b id="o-qrLink">—</b></div>
@@ -268,122 +414,291 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
         <li>Create a new repository named e.g. <code style="background:#eef3f1;padding:1px 5px;border-radius:3px">vouchers</code>, and turn on <b>GitHub Pages</b> in its Settings → Pages (branch: main, folder: /root).</li>
         <li>Click <b>"Download Tracking Page"</b> above for each customer — it saves one HTML file named after their voucher number.</li>
         <li>Upload that file into your <code style="background:#eef3f1;padding:1px 5px;border-radius:3px">vouchers</code> repository (drag and drop on the GitHub website works fine).</li>
-        <li>Your customer's page is now live at <code style="background:#eef3f1;padding:1px 5px;border-radius:3px">https://yourname.github.io/vouchers/UB-101818.html</code> — paste that base address into the "Your hosting web address" box on the left, and the QR code updates automatically.</li>
+        <li>Your customer's page is now live at <code style="background:#eef3f1;padding:1px 5px;border-radius:3px">https://yourname.github.io/vouchers/22588.html</code> — paste that base address into the "Your hosting web address" box on the left, and the QR code updates automatically.</li>
       </ol>
       <div class="panel-note">Tip: you only do steps 1–2 once. After that, for every new customer you just fill the form, click <b>Download Tracking Page</b>, and drag the file into the same GitHub repository.</div>
     </div>
   </main>
 </div>
 
-<template id="tRow">
-  <div class="row-card" data-row>
-    <input type="text" data-k="hcn" placeholder="55840-1">
-    <input type="date" data-k="checkin">
-    <input type="date" data-k="checkout">
-    <input type="number" data-k="nights" placeholder="2" min="0">
-    <input type="text" data-k="roomType" placeholder="Triple">
-    <input type="number" data-k="pax" placeholder="3" min="0">
-    <input type="number" data-k="rooms" placeholder="1" min="0">
-    <input type="text" data-k="meal" placeholder="R/O">
-    <button class="row-del" type="button"><svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
-  </div>
-</template>
-<template id="tTerm">
-  <div class="term-card" data-term>
-    <textarea rows="2" placeholder="Term text..."></textarea>
-    <button class="row-del" type="button"><svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
-  </div>
-</template>
-
 <script>
-let rows=[{hcn:'55840-1',checkin:'2026-07-06',checkout:'2026-07-08',nights:2,roomType:'Triple',pax:3,rooms:1,meal:'R/O'}];
-let terms=['KSA hotel standard check-in / check-out times: Check-in 16:00, Check-out 12:00 (Noon).','If you choose the transport visa, you must travel using their bus; if you use any other transport, you will be responsible for any penalties.','If there is an issue with check-in or room due to rush at the hotels, we will provide a similar or upgraded hotel; please remain patient in such situations.','We assure you the best services and look forward to welcoming you.'];
-let logoUrl=null;
-const $=id=>document.getElementById(id);
-const esc=s=>{const d=document.createElement('div');d.textContent=s??'';return d.innerHTML};
-const fmtDate=iso=>{if(!iso)return '';const[y,m,d]=iso.split('-');return`${d}-${m}-${y.slice(2)}`};
-const calcN=(a,b)=>{if(!a||!b)return '';const n=Math.round((new Date(b)-new Date(a))/86400000);return n>0?n:''};
-const slug=s=>(s||'voucher').toString().trim().replace(/[^a-zA-Z0-9-_]+/g,'-').replace(/^-+|-+$/g,'')||'voucher';
+// ===================== STATE =====================
+let makkahRows = [{hcn:'55840-1',checkin:'2026-07-06',checkout:'2026-07-08',nights:2,roomType:'Triple',pax:3,rooms:1,meal:'R/O'}];
+let madinahRows = [];
+let transportRows = [];
+let passengers = [{name:'Syed Muhammad Minhajuddin',passport:'AB1234567',type:'Adult'}];
+let terms = ['KSA hotel standard check-in / check-out times: Check-in 16:00, Check-out 12:00 (Noon).','If you choose the transport visa, you must travel using their bus; if you use any other transport, you will be responsible for any penalties.','If there is an issue with check-in or room due to rush at the hotels, we will provide a similar or upgraded hotel; please remain patient in such situations.','We assure you the best services and look forward to welcoming you.'];
+let logoUrl = null;
 
-const binds=[['agencyName','o-agencyName'],['agencyAddress','o-agencyAddress'],['phone1','o-phone1'],['phone2','o-phone2'],['toName','o-to'],['vNo','o-vno'],['guestName','o-guest'],['nationality','o-nat'],['hotelName','o-hotel'],['city','o-city'],['contactHead','o-contactHead'],['contactName','o-contactName'],['contactNum','o-contactNum'],['closing','o-closing'],['closing2','o-closing2']];
-binds.forEach(([i,o])=>{const el=$(i),out=$(o);const s=()=>{out.textContent=el.value;refreshQR()};el.addEventListener('input',s);el.addEventListener('change',s);s()});
+const $ = id => document.getElementById(id);
+const esc = s => { const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML };
+const fmtDate = iso => { if (!iso) return ''; const [y, m, d] = iso.split('-'); return `${d}-${m}-${y.slice(2)}` };
+const calcN = (a, b) => { if (!a || !b) return ''; const n = Math.round((new Date(b) - new Date(a)) / 86400000); return n > 0 ? n : '' };
+const slug = s => (s || 'voucher').toString().trim().replace(/[^a-zA-Z0-9-_]+/g, '-').replace(/^-+|-+$/g, '') || 'voucher';
 
-const vDate=$('vDate'),oDate=$('o-date');
-vDate.addEventListener('input',()=>{oDate.textContent=fmtDate(vDate.value);refreshQR()});
-vDate.value=new Date().toISOString().slice(0,10);oDate.textContent=fmtDate(vDate.value);
+// ===================== BASIC BINDS =====================
+const binds = [['agencyName','o-agencyName'],['agencyAddress','o-agencyAddress'],['phone1','o-phone1'],['phone2','o-phone2'],['toName','o-to'],['vNo','o-vno'],['guestName','o-guest'],['nationality','o-nat'],['contactHead','o-contactHead'],['contactName','o-contactName'],['contactNum','o-contactNum'],['closing','o-closing'],['closing2','o-closing2']];
+binds.forEach(([i, o]) => {
+  const el = $(i), out = $(o);
+  const s = () => { out.textContent = el.value; refreshQR(); };
+  el.addEventListener('input', s); el.addEventListener('change', s); s();
+});
 
-const statusEl=$('status'),oStatus=$('o-status');
-statusEl.addEventListener('change',()=>{oStatus.textContent=statusEl.value;refreshQR()});
+const vDate = $('vDate'), oDate = $('o-date');
+vDate.addEventListener('input', () => { oDate.textContent = fmtDate(vDate.value); refreshQR(); });
+vDate.value = new Date().toISOString().slice(0, 10);
+oDate.textContent = fmtDate(vDate.value);
 
-function renderRows(){const list=$('rowsList');list.innerHTML='';rows.forEach((r,i)=>{const tpl=document.getElementById('tRow').content.firstElementChild.cloneNode(true);['hcn','checkin','checkout','nights','roomType','pax','rooms','meal'].forEach(k=>tpl.querySelector(`[data-k="${k}"]`).value=r[k]??'');tpl.querySelectorAll('input').forEach(inp=>{inp.addEventListener('input',()=>{const k=inp.dataset.k;let v=inp.value;if(['nights','pax','rooms'].includes(k))v=v===''?'':Number(v);rows[i][k]=v;if(k==='checkin'||k==='checkout'){const n=calcN(rows[i].checkin,rows[i].checkout);if(n!==''){rows[i].nights=n;tpl.querySelector('[data-k="nights"]').value=n}}renderTable();refreshQR()})});tpl.querySelector('.row-del').addEventListener('click',()=>{rows.splice(i,1);renderRows();renderTable();refreshQR()});list.appendChild(tpl)})}
-function renderTable(){const tbody=$('o-tbody');tbody.innerHTML='';rows.forEach((r,i)=>{const tr=document.createElement('tr');tr.innerHTML=`<td>${i+1}</td><td class="hcn">${esc(r.hcn)}</td><td>${fmtDate(r.checkin)}</td><td>${fmtDate(r.checkout)}</td><td>${esc(String(r.nights??''))}</td><td>${esc(r.roomType)}</td><td>${esc(String(r.pax??''))}</td><td>${esc(String(r.rooms??''))}</td><td>${esc(r.meal)}</td>`;tbody.appendChild(tr)})}
-$('addRow').addEventListener('click',()=>{rows.push({hcn:'',checkin:'',checkout:'',nights:'',roomType:'',pax:'',rooms:'',meal:''});renderRows();renderTable();refreshQR()});
+const statusEl = $('status'), oStatus = $('o-status');
+statusEl.addEventListener('change', () => { oStatus.textContent = statusEl.value; refreshQR(); });
 
-function renderTermsEditor(){const list=$('termsList');list.innerHTML='';terms.forEach((t,i)=>{const tpl=document.getElementById('tTerm').content.firstElementChild.cloneNode(true);const ta=tpl.querySelector('textarea');ta.value=t;ta.addEventListener('input',()=>{terms[i]=ta.value;renderTermsPreview()});tpl.querySelector('.row-del').addEventListener('click',()=>{terms.splice(i,1);renderTermsEditor();renderTermsPreview()});list.appendChild(tpl)})}
-function renderTermsPreview(){const ol=$('o-terms');ol.innerHTML='';terms.forEach(t=>{const li=document.createElement('li');li.textContent=t;ol.appendChild(li)})}
-$('addTerm').addEventListener('click',()=>{terms.push('');renderTermsEditor();renderTermsPreview()});
+// Hotel name binds
+$('makkahHotel').addEventListener('input', () => { $('o-makkahHotelName').textContent = $('makkahHotel').value; refreshQR(); });
+$('madinahHotel').addEventListener('input', () => { $('o-madinahHotelName').textContent = $('madinahHotel').value; refreshQR(); });
 
-$('logoPick').addEventListener('click',()=>$('logoFile').click());
-$('logoFile').addEventListener('change',()=>{const f=$('logoFile').files[0];if(!f)return;const r=new FileReader();r.onload=e=>{logoUrl=e.target.result;$('logoSlot').innerHTML=`<img src="${logoUrl}" alt="Logo">`;$('logoName').textContent=f.name};r.readAsDataURL(f)});
-$('logoRemove').addEventListener('click',()=>{logoUrl=null;$('logoFile').value='';$('logoName').textContent='No file — default logo shown';$('logoSlot').innerHTML=`<svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="29" stroke="currentColor" stroke-width="1.3"/><circle cx="32" cy="22" r="6" stroke="currentColor" stroke-width="1.3"/><path d="M14 52c0-13 8-19 18-19s18 6 18 19" stroke="currentColor" stroke-width="1.3"/></svg>`});
+// ===================== TOGGLE SECTIONS =====================
+$('makkahEnabled').addEventListener('change', () => {
+  $('makkahFields').classList.toggle('hidden', !$('makkahEnabled').checked);
+  $('o-makkah-section').classList.toggle('hidden', !$('makkahEnabled').checked);
+  refreshQR();
+});
+$('madinahEnabled').addEventListener('change', () => {
+  $('madinahFields').classList.toggle('hidden', !$('madinahEnabled').checked);
+  $('o-madinah-section').classList.toggle('hidden', !$('madinahEnabled').checked);
+  refreshQR();
+});
+$('transportEnabled').addEventListener('change', () => {
+  $('transportFields').classList.toggle('hidden', !$('transportEnabled').checked);
+  $('o-transport-section').classList.toggle('hidden', !$('transportEnabled').checked);
+  refreshQR();
+});
 
-function currentLink(){
-  const base=($('baseUrl').value||'').trim();
-  const file=slug($('vNo').value)+'.html';
-  if(base){
-    return base.endsWith('/')?base+file:base+'/'+file;
-  }
-  return 'https://yourname.github.io/vouchers/'+file+'  (sample — set your address on the left)';
+// ===================== PASSENGERS =====================
+function renderPax() {
+  const list = $('paxList'); list.innerHTML = '';
+  passengers.forEach((p, i) => {
+    const div = document.createElement('div');
+    div.className = 'pax-row';
+    div.innerHTML = `<div class="pax-row-top">
+      <input type="text" data-k="name" value="${esc(p.name)}" placeholder="Passenger name">
+      <input type="text" data-k="passport" value="${esc(p.passport)}" placeholder="e.g. AB1234567" style="font-family:monospace">
+      <select data-k="type">
+        <option${p.type==='Adult'?' selected':''}>Adult</option>
+        <option${p.type==='Child'?' selected':''}>Child</option>
+        <option${p.type==='Infant'?' selected':''}>Infant</option>
+      </select>
+      <button class="row-del" type="button"><svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+    </div>`;
+    div.querySelectorAll('input,select').forEach(inp => {
+      inp.addEventListener('input', () => { passengers[i][inp.dataset.k] = inp.value; renderPaxTable(); refreshQR(); });
+      inp.addEventListener('change', () => { passengers[i][inp.dataset.k] = inp.value; renderPaxTable(); refreshQR(); });
+    });
+    div.querySelector('.row-del').addEventListener('click', () => { passengers.splice(i, 1); renderPax(); renderPaxTable(); refreshQR(); });
+    list.appendChild(div);
+  });
 }
-function refreshQR(){
-  const link=currentLink();
-  $('o-qrLink').textContent=link;
-  const box=$('qrPreview');
-  box.innerHTML='';
-  try{ new QRCode(box,{text: link.split('  (')[0], width:76, height:76, colorDark:'#1a5c52', colorLight:'#ffffff'}); }catch(e){}
+function renderPaxTable() {
+  const tbody = $('o-pax-tbody'); tbody.innerHTML = '';
+  passengers.forEach((p, i) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${i+1}</td><td>${esc(p.name)}</td><td class="passport-no">${esc(p.passport)}</td><td>${esc(p.type)}</td>`;
+    tbody.appendChild(tr);
+  });
+  $('o-pax-section').classList.toggle('hidden', passengers.length === 0);
 }
-$('baseUrl').addEventListener('input',refreshQR);
+$('addPax').addEventListener('click', () => { passengers.push({name:'',passport:'',type:'Adult'}); renderPax(); renderPaxTable(); refreshQR(); });
 
-$('printBtn').addEventListener('click',()=>window.print());
+// ===================== BOOKING ROWS (generic) =====================
+function makeBookingRow(r, i, rows, listId, tbodyId, hotelColor) {
+  const tpl = document.createElement('div');
+  tpl.className = 'row-card-mak';
+  tpl.style.setProperty('--row-color', hotelColor || 'var(--green-mid)');
+  tpl.innerHTML = `
+    <input type="text" data-k="hcn" value="${esc(r.hcn)}" placeholder="55840-1">
+    <input type="date" data-k="checkin" value="${r.checkin||''}">
+    <input type="date" data-k="checkout" value="${r.checkout||''}">
+    <input type="number" data-k="nights" value="${r.nights??''}" placeholder="2" min="0">
+    <input type="text" data-k="roomType" value="${esc(r.roomType)}" placeholder="Triple">
+    <input type="number" data-k="pax" value="${r.pax??''}" placeholder="3" min="0">
+    <input type="number" data-k="rooms" value="${r.rooms??''}" placeholder="1" min="0">
+    <input type="text" data-k="meal" value="${esc(r.meal)}" placeholder="R/O">
+    <button class="row-del" type="button"><svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>`;
+  tpl.querySelectorAll('input').forEach(inp => {
+    inp.addEventListener('input', () => {
+      const k = inp.dataset.k; let v = inp.value;
+      if (['nights','pax','rooms'].includes(k)) v = v === '' ? '' : Number(v);
+      rows[i][k] = v;
+      if (k === 'checkin' || k === 'checkout') {
+        const n = calcN(rows[i].checkin, rows[i].checkout);
+        if (n !== '') { rows[i].nights = n; tpl.querySelector('[data-k="nights"]').value = n; }
+      }
+      renderBookingTable(rows, tbodyId); refreshQR();
+    });
+  });
+  tpl.querySelector('.row-del').addEventListener('click', () => {
+    rows.splice(i, 1);
+    renderBookingRows(rows, listId, tbodyId, hotelColor);
+    renderBookingTable(rows, tbodyId); refreshQR();
+  });
+  return tpl;
+}
+function renderBookingRows(rows, listId, tbodyId, hotelColor) {
+  const list = $(listId); list.innerHTML = '';
+  rows.forEach((r, i) => list.appendChild(makeBookingRow(r, i, rows, listId, tbodyId, hotelColor)));
+}
+function renderBookingTable(rows, tbodyId) {
+  const tbody = $(tbodyId); tbody.innerHTML = '';
+  rows.forEach((r, i) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${i+1}</td><td class="hcn">${esc(r.hcn)}</td><td>${fmtDate(r.checkin)}</td><td>${fmtDate(r.checkout)}</td><td>${esc(String(r.nights??''))}</td><td>${esc(r.roomType)}</td><td>${esc(String(r.pax??''))}</td><td>${esc(String(r.rooms??''))}</td><td>${esc(r.meal)}</td>`;
+    tbody.appendChild(tr);
+  });
+}
 
-function buildTrackingPageHTML(){
-  const data={
-    agencyName:$('agencyName').value, agencyAddress:$('agencyAddress').value,
-    phone1:$('phone1').value, phone2:$('phone2').value,
-    vDate: fmtDate(vDate.value), vNo:$('vNo').value, toName:$('toName').value, status:statusEl.value,
-    guestName:$('guestName').value, nationality:$('nationality').value, hotelName:$('hotelName').value, city:$('city').value,
-    contactHead:$('contactHead').value, contactName:$('contactName').value, contactNum:$('contactNum').value,
-    closing:$('closing').value, closing2:$('closing2').value,
-    rows: rows.map(r=>({...r, checkinF: fmtDate(r.checkin), checkoutF: fmtDate(r.checkout)})),
+$('addMakkahRow').addEventListener('click', () => { makkahRows.push({hcn:'',checkin:'',checkout:'',nights:'',roomType:'',pax:'',rooms:'',meal:''}); renderBookingRows(makkahRows,'makkahRowsList','o-makkah-tbody'); renderBookingTable(makkahRows,'o-makkah-tbody'); refreshQR(); });
+$('addMadinahRow').addEventListener('click', () => { madinahRows.push({hcn:'',checkin:'',checkout:'',nights:'',roomType:'',pax:'',rooms:'',meal:''}); renderBookingRows(madinahRows,'madinahRowsList','o-madinah-tbody','#7a5010'); renderBookingTable(madinahRows,'o-madinah-tbody'); refreshQR(); });
+
+// ===================== TRANSPORT =====================
+function renderTransport() {
+  const list = $('transportList'); list.innerHTML = '';
+  transportRows.forEach((t, i) => {
+    const div = document.createElement('div');
+    div.className = 'transport-row';
+    div.innerHTML = `
+      <input type="text" data-k="route" value="${esc(t.route)}" placeholder="Makkah → Madinah">
+      <input type="date" data-k="date" value="${t.date||''}">
+      <input type="text" data-k="time" value="${esc(t.time)}" placeholder="08:00 AM">
+      <input type="text" data-k="type" value="${esc(t.type)}" placeholder="Bus / Van / Flight">
+      <button class="row-del" type="button"><svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>`;
+    div.querySelectorAll('input').forEach(inp => {
+      inp.addEventListener('input', () => { transportRows[i][inp.dataset.k] = inp.value; renderTransportTable(); refreshQR(); });
+    });
+    div.querySelector('.row-del').addEventListener('click', () => { transportRows.splice(i, 1); renderTransport(); renderTransportTable(); refreshQR(); });
+    list.appendChild(div);
+  });
+}
+function renderTransportTable() {
+  const tbody = $('o-transport-tbody'); tbody.innerHTML = '';
+  transportRows.forEach((t, i) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${i+1}</td><td style="font-weight:600">${esc(t.route)}</td><td>${fmtDate(t.date)}</td><td>${esc(t.time)}</td><td>${esc(t.type)}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+$('addTransport').addEventListener('click', () => { transportRows.push({route:'',date:'',time:'',type:''}); renderTransport(); renderTransportTable(); refreshQR(); });
+
+// ===================== TERMS =====================
+function renderTermsEditor() {
+  const list = $('termsList'); list.innerHTML = '';
+  terms.forEach((t, i) => {
+    const tpl = document.createElement('div');
+    tpl.className = 'term-card';
+    tpl.innerHTML = `<textarea rows="2" placeholder="Term text...">${esc(t)}</textarea><button class="row-del" type="button"><svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>`;
+    const ta = tpl.querySelector('textarea');
+    ta.addEventListener('input', () => { terms[i] = ta.value; renderTermsPreview(); });
+    tpl.querySelector('.row-del').addEventListener('click', () => { terms.splice(i, 1); renderTermsEditor(); renderTermsPreview(); });
+    list.appendChild(tpl);
+  });
+}
+function renderTermsPreview() {
+  const ol = $('o-terms'); ol.innerHTML = '';
+  terms.forEach(t => { const li = document.createElement('li'); li.textContent = t; ol.appendChild(li); });
+}
+$('addTerm').addEventListener('click', () => { terms.push(''); renderTermsEditor(); renderTermsPreview(); });
+
+// ===================== LOGO =====================
+$('logoPick').addEventListener('click', () => $('logoFile').click());
+$('logoFile').addEventListener('change', () => {
+  const f = $('logoFile').files[0]; if (!f) return;
+  const r = new FileReader();
+  r.onload = e => { logoUrl = e.target.result; $('logoSlot').innerHTML = `<img src="${logoUrl}" alt="Logo">`; $('logoName').textContent = f.name; };
+  r.readAsDataURL(f);
+});
+$('logoRemove').addEventListener('click', () => {
+  logoUrl = null; $('logoFile').value = ''; $('logoName').textContent = 'No file — default logo shown';
+  $('logoSlot').innerHTML = `<svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="29" stroke="currentColor" stroke-width="1.3"/><circle cx="32" cy="22" r="6" stroke="currentColor" stroke-width="1.3"/><path d="M14 52c0-13 8-19 18-19s18 6 18 19" stroke="currentColor" stroke-width="1.3"/></svg>`;
+});
+
+// ===================== QR =====================
+function currentLink() {
+  const base = ($('baseUrl').value || '').trim();
+  const file = slug($('vNo').value) + '.html';
+  if (base) return base.endsWith('/') ? base + file : base + '/' + file;
+  return 'https://yourname.github.io/vouchers/' + file + '  (sample — set your address on the left)';
+}
+function refreshQR() {
+  const link = currentLink();
+  $('o-qrLink').textContent = link;
+  const box = $('qrPreview'); box.innerHTML = '';
+  try { new QRCode(box, { text: link.split('  (')[0], width: 76, height: 76, colorDark: '#1a5c52', colorLight: '#ffffff' }); } catch(e) {}
+}
+$('baseUrl').addEventListener('input', refreshQR);
+
+// ===================== PRINT =====================
+$('printBtn').addEventListener('click', () => window.print());
+
+// ===================== TRACKING PAGE BUILD =====================
+function buildTrackingPageHTML() {
+  const data = {
+    agencyName: $('agencyName').value, agencyAddress: $('agencyAddress').value,
+    phone1: $('phone1').value, phone2: $('phone2').value,
+    vDate: fmtDate(vDate.value), vNo: $('vNo').value, toName: $('toName').value, status: statusEl.value,
+    guestName: $('guestName').value, nationality: $('nationality').value,
+    makkahEnabled: $('makkahEnabled').checked, makkahHotel: $('makkahHotel').value,
+    madinahEnabled: $('madinahEnabled').checked, madinahHotel: $('madinahHotel').value,
+    transportEnabled: $('transportEnabled').checked,
+    contactHead: $('contactHead').value, contactName: $('contactName').value, contactNum: $('contactNum').value,
+    closing: $('closing').value, closing2: $('closing2').value,
+    makkahRows: makkahRows.map(r => ({...r, checkinF: fmtDate(r.checkin), checkoutF: fmtDate(r.checkout)})),
+    madinahRows: madinahRows.map(r => ({...r, checkinF: fmtDate(r.checkin), checkoutF: fmtDate(r.checkout)})),
+    transportRows: transportRows.map(t => ({...t, dateF: fmtDate(t.date)})),
+    passengers: passengers,
     terms: terms, logoUrl: logoUrl
   };
-  const rowsHtml = data.rows.map((r,i)=>`<tr><td>${i+1}</td><td class="hcn">${esc(r.hcn)}</td><td>${esc(r.checkinF)}</td><td>${esc(r.checkoutF)}</td><td>${esc(String(r.nights??''))}</td><td>${esc(r.roomType)}</td><td>${esc(String(r.pax??''))}</td><td>${esc(String(r.rooms??''))}</td><td>${esc(r.meal)}</td></tr>`).join('');
-  const termsHtml = data.terms.map(t=>`<li>${esc(t)}</li>`).join('');
+
   const logoHtml = data.logoUrl ? `<img src="${data.logoUrl}" alt="Logo">` : `<svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="29" stroke="currentColor" stroke-width="1.3"/><circle cx="32" cy="22" r="6" stroke="currentColor" stroke-width="1.3"/><path d="M14 52c0-13 8-19 18-19s18 6 18 19" stroke="currentColor" stroke-width="1.3"/></svg>`;
+
+  const paxHtml = data.passengers.length ? `
+    <div class="sechead">Passenger &amp; Passport Details</div>
+    <table class="ptable"><thead><tr><th>#</th><th>Name</th><th>Passport No.</th><th>Type</th></tr></thead><tbody>
+    ${data.passengers.map((p,i)=>`<tr><td>${i+1}</td><td>${esc(p.name)}</td><td class="ppno">${esc(p.passport)}</td><td>${esc(p.type)}</td></tr>`).join('')}
+    </tbody></table>` : '';
+
+  const makkahHtml = data.makkahEnabled && data.makkahRows.length ? `
+    <div class="sechead">🕋 Makkah Hotel — <span style="font-weight:700;color:#1a5c52">${esc(data.makkahHotel)}</span></div>
+    ${data.makkahRows.map(r=>`<div class="seg"><div class="seg-top"><span class="seg-hotel">HCN ${esc(r.hcn)}</span><span class="seg-city" style="background:#d6ece9;color:#1a5c52">${esc(r.roomType||'')}</span></div><div class="seg-rows"><span>Check-in <b>${esc(r.checkinF)}</b></span><span>Check-out <b>${esc(r.checkoutF)}</b></span><span>Nights <b>${esc(String(r.nights??''))}</b></span><span>Pax <b>${esc(String(r.pax??''))}</b></span><span>Rooms <b>${esc(String(r.rooms??''))}</b></span><span>Meal <b>${esc(r.meal)}</b></span></div></div>`).join('')}` : '';
+
+  const madinahHtml = data.madinahEnabled && data.madinahRows.length ? `
+    <div class="sechead">🕌 Madinah Hotel — <span style="font-weight:700;color:#7a5010">${esc(data.madinahHotel)}</span></div>
+    ${data.madinahRows.map(r=>`<div class="seg" style="background:#fdf6e8;border-color:#e8d8b0"><div class="seg-top"><span class="seg-hotel">HCN ${esc(r.hcn)}</span><span class="seg-city" style="background:#fdf0d6;color:#7a5010">${esc(r.roomType||'')}</span></div><div class="seg-rows"><span>Check-in <b>${esc(r.checkinF)}</b></span><span>Check-out <b>${esc(r.checkoutF)}</b></span><span>Nights <b>${esc(String(r.nights??''))}</b></span><span>Pax <b>${esc(String(r.pax??''))}</b></span><span>Rooms <b>${esc(String(r.rooms??''))}</b></span><span>Meal <b>${esc(r.meal)}</b></span></div></div>`).join('')}` : '';
+
+  const transportHtml = data.transportEnabled && data.transportRows.length ? `
+    <div class="sechead">🚌 Transport Details</div>
+    ${data.transportRows.map((t,i)=>`<div class="seg" style="background:#eef0f8;border-color:#c5cae8"><div class="seg-top"><span class="seg-hotel">${i+1}. ${esc(t.route)}</span><span class="seg-city" style="background:#dde2f5;color:#2c3e6b">${esc(t.type)}</span></div><div class="seg-rows"><span>Date <b>${esc(t.dateF)}</b></span><span>Time <b>${esc(t.time)}</b></span></div></div>`).join('')}` : '';
+
+  const termsHtml = data.terms.map(t => `<li>${esc(t)}</li>`).join('');
+
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Booking Status — ${esc(data.vNo)} — ${esc(data.agencyName)}</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{--green:#0f3d37;--green-mid:#22756a;--green-light:#d6ece9;--gold:#c9a227;--ink:#1a1a1a;--ink-2:#444;--ink-3:#7a8a86;--bg:#faf7ef;--paper:#fff;--border:#e3ddc9}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:flex;justify-content:center;padding:32px 16px 60px}
-.stub{width:100%;max-width:480px}
+.stub{width:100%;max-width:500px}
 .card{background:var(--paper);border-radius:14px;box-shadow:0 10px 40px rgba(15,61,55,.12);overflow:hidden;border:1px solid var(--border)}
 .head{background:var(--green);color:#fff;padding:24px 24px 20px;text-align:center}
 .crest{width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;overflow:hidden}
 .crest svg{width:30px;height:30px;color:#fff}
 .crest img{width:100%;height:100%;object-fit:cover}
-.agency{font-family:'Playfair Display',serif;font-weight:700;font-size:1.15rem;letter-spacing:.01em}
+.agency{font-family:'Playfair Display',serif;font-weight:700;font-size:1.1rem}
 .addr{font-size:.72rem;opacity:.78;margin-top:4px;line-height:1.5}
 .status-pill{display:inline-block;margin-top:12px;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 14px;border-radius:20px;background:var(--gold);color:#3a2c06}
-.perf{position:relative;height:0;background:var(--green)}
-.perf::before{content:'';position:absolute;left:-12px;top:-12px;width:24px;height:24px;background:var(--bg);border-radius:50%}
-.perf::after{content:'';position:absolute;right:-12px;top:-12px;width:24px;height:24px;background:var(--bg);border-radius:50%}
+.perf{height:0;position:relative}
 .perfline{border-top:2px dashed rgba(255,255,255,.35);margin:0 24px}
 .body{padding:26px 24px 8px}
 .greet{font-family:'Amiri',serif;color:var(--green);font-size:1.05rem;margin-bottom:4px}
@@ -391,17 +706,23 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);min-he
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 20px;margin-bottom:22px}
 .item .k{font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:3px}
 .item .v{font-size:.94rem;font-weight:600}
-.sechead{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin:24px 0 12px;display:flex;align-items:center;gap:8px}
+.sechead{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin:22px 0 10px;display:flex;align-items:center;gap:8px}
 .sechead::after{content:'';flex:1;height:1px;background:var(--border)}
+.ptable{width:100%;border-collapse:collapse;margin-bottom:16px;font-size:.8rem}
+.ptable th{background:var(--green);color:#fff;padding:7px 8px;text-align:left;font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.ptable th:first-child{border-radius:6px 0 0 0}.ptable th:last-child{border-radius:0 6px 0 0}
+.ptable td{padding:7px 8px;border-bottom:1px solid var(--border);color:var(--ink-2)}
+.ptable tr:nth-child(even) td{background:#f7f4ea}
+.ppno{font-family:monospace;font-weight:700;color:var(--ink);letter-spacing:.05em}
 .seg{background:#f7f4ea;border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
-.seg-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.seg-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;flex-wrap:wrap;gap:6px}
 .seg-hotel{font-weight:600;font-size:.92rem}
-.seg-city{font-size:.7rem;color:var(--green);font-weight:700;text-transform:uppercase;letter-spacing:.05em;background:var(--green-light);padding:2px 8px;border-radius:10px}
-.seg-rows{display:flex;gap:18px;flex-wrap:wrap;font-size:.78rem;color:var(--ink-2)}
+.seg-city{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 8px;border-radius:10px}
+.seg-rows{display:flex;gap:16px;flex-wrap:wrap;font-size:.78rem;color:var(--ink-2)}
 .seg-rows b{color:var(--ink);font-weight:600}
 .terms{padding-left:18px;margin-bottom:6px}
 .terms li{font-size:.76rem;color:var(--ink-2);line-height:1.6;margin-bottom:5px}
-.contact{display:flex;justify-content:space-between;align-items:center;background:var(--green-light);border-radius:10px;padding:12px 16px;margin:18px 0}
+.contact{display:flex;justify-content:space-between;align-items:center;background:var(--green-light);border-radius:10px;padding:12px 16px;margin:18px 0;flex-wrap:wrap;gap:8px}
 .contact .lbl{font-size:.72rem;color:var(--green);font-weight:700}
 .contact .num{font-size:.92rem;font-weight:700;color:var(--green)}
 .foot{padding:18px 24px 24px;text-align:center}
@@ -409,7 +730,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);min-he
 .foot .closing2{font-size:.78rem;color:var(--ink-3);margin-top:4px;font-style:italic}
 .verify{margin-top:18px;font-size:.68rem;color:var(--ink-3);letter-spacing:.03em}
 .verify b{color:var(--green)}
-@media(max-width:420px){.grid{grid-template-columns:1fr}.seg-rows{gap:10px}}
+@media(max-width:420px){.grid{grid-template-columns:1fr}.seg-rows{gap:10px}.ptable{font-size:.72rem}}
 </style>
 </head>
 <body>
@@ -430,18 +751,21 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);min-he
         <div class="item"><div class="k">Date issued</div><div class="v">${esc(data.vDate)}</div></div>
         <div class="item"><div class="k">Guest name</div><div class="v">${esc(data.guestName)}</div></div>
         <div class="item"><div class="k">Nationality</div><div class="v">${esc(data.nationality)}</div></div>
-        <div class="item"><div class="k">Hotel</div><div class="v">${esc(data.hotelName)}</div></div>
-        <div class="item"><div class="k">City</div><div class="v">${esc(data.city)}</div></div>
       </div>
-      <div class="sechead">Stay details</div>
-      ${data.rows.map(r=>`<div class="seg"><div class="seg-top"><span class="seg-hotel">HCN ${esc(r.hcn)}</span><span class="seg-city">${esc(r.roomType||'')}</span></div><div class="seg-rows"><span>Check-in <b>${esc(r.checkinF)}</b></span><span>Check-out <b>${esc(r.checkoutF)}</b></span><span>Nights <b>${esc(String(r.nights??''))}</b></span><span>Pax <b>${esc(String(r.pax??''))}</b></span><span>Rooms <b>${esc(String(r.rooms??''))}</b></span><span>Meal <b>${esc(r.meal)}</b></span></div></div>`).join('')}
+      ${paxHtml}
+      ${makkahHtml}
+      ${madinahHtml}
+      ${transportHtml}
       <div class="sechead">Terms &amp; conditions</div>
       <ol class="terms">${termsHtml}</ol>
-      <div class="contact"><span class="lbl">${esc(data.contactHead)}</span><span class="num">${esc(data.contactName)}: ${esc(data.contactNum)}</span></div>
+      <div class="contact">
+        <span class="lbl">${esc(data.contactHead)}</span>
+        <span class="num">${esc(data.contactName)}: ${esc(data.contactNum)}</span>
+      </div>
     </div>
     <div class="foot">
       <div class="closing">${esc(data.closing)}</div>
-      ${data.closing2?`<div class="closing2">${esc(data.closing2)}</div>`:''}
+      ${data.closing2 ? `<div class="closing2">${esc(data.closing2)}</div>` : ''}
       <div class="verify">Verified booking record · <b>${esc(data.agencyName)}</b></div>
     </div>
   </div>
@@ -450,20 +774,57 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);min-he
 </html>`;
 }
 
-$('downloadTrackBtn').addEventListener('click',()=>{
-  const html=buildTrackingPageHTML();
-  const blob=new Blob([html],{type:'text/html'});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');
-  a.href=url; a.download=slug($('vNo').value)+'.html';
+$('downloadTrackBtn').addEventListener('click', () => {
+  const html = buildTrackingPageHTML();
+  const blob = new Blob([html], {type: 'text/html'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = slug($('vNo').value) + '.html';
   document.body.appendChild(a); a.click(); document.body.removeChild(a);
   URL.revokeObjectURL(url);
 });
 
-$('newBtn').addEventListener('click',()=>{if(!confirm('New voucher? Current data will be cleared.'))return;$('agencyName').value='KARWAN E MARHABA TRAVEL & TOURS';$('agencyAddress').value='Near Kanzul Eiman Masjid, Dhak Road, Sukkur';$('phone1').value='071-5620922';$('phone2').value='0315-3470898';$('toName').value='';$('vNo').value='';$('guestName').value='';$('nationality').value='Pakistan';$('hotelName').value='';$('city').value='Makkah';$('contactHead').value='Contact (Only For Makkah Staff)';$('contactName').value='';$('contactNum').value='';$('closing').value='Thank You and Best Regards';$('closing2').value='';$('status').value='Confirmed';$('status').dispatchEvent(new Event('change'));rows=[{hcn:'',checkin:'',checkout:'',nights:'',roomType:'',pax:'',rooms:'',meal:''}];terms=['KSA hotel standard check-in / check-out times: Check-in 16:00, Check-out 12:00 (Noon).'];binds.forEach(([i])=>$(i).dispatchEvent(new Event('input')));renderRows();renderTable();renderTermsEditor();renderTermsPreview();refreshQR()});
+// ===================== NEW VOUCHER =====================
+$('newBtn').addEventListener('click', () => {
+  if (!confirm('New voucher? Current data will be cleared.')) return;
+  $('agencyName').value = 'KARWAN E MARHABA TRAVEL & TOURS';
+  $('agencyAddress').value = 'Near Kanzul Eiman Masjid, Dhak Road, Sukkur';
+  $('phone1').value = '071-5620922'; $('phone2').value = '0315-3470898';
+  $('toName').value = ''; $('vNo').value = ''; $('guestName').value = ''; $('nationality').value = 'Pakistan';
+  $('makkahHotel').value = ''; $('madinahHotel').value = '';
+  $('contactHead').value = 'Contact (Only For Makkah Staff)';
+  $('contactName').value = ''; $('contactNum').value = '';
+  $('closing').value = 'Thank You and Best Regards'; $('closing2').value = '';
+  $('status').value = 'Confirmed'; $('status').dispatchEvent(new Event('change'));
+  $('makkahEnabled').checked = true; $('makkahEnabled').dispatchEvent(new Event('change'));
+  $('madinahEnabled').checked = false; $('madinahEnabled').dispatchEvent(new Event('change'));
+  $('transportEnabled').checked = false; $('transportEnabled').dispatchEvent(new Event('change'));
+  makkahRows = [{hcn:'',checkin:'',checkout:'',nights:'',roomType:'',pax:'',rooms:'',meal:''}];
+  madinahRows = []; transportRows = [];
+  passengers = [{name:'',passport:'',type:'Adult'}];
+  terms = ['KSA hotel standard check-in / check-out times: Check-in 16:00, Check-out 12:00 (Noon).'];
+  binds.forEach(([i]) => $(i).dispatchEvent(new Event('input')));
+  $('o-makkahHotelName').textContent = ''; $('o-madinahHotelName').textContent = '';
+  renderPax(); renderPaxTable();
+  renderBookingRows(makkahRows,'makkahRowsList','o-makkah-tbody');
+  renderBookingTable(makkahRows,'o-makkah-tbody');
+  renderBookingRows(madinahRows,'madinahRowsList','o-madinah-tbody','#7a5010');
+  renderBookingTable(madinahRows,'o-madinah-tbody');
+  renderTransport(); renderTransportTable();
+  renderTermsEditor(); renderTermsPreview();
+  refreshQR();
+});
 
-renderRows();renderTable();renderTermsEditor();renderTermsPreview();refreshQR();
+// ===================== INIT =====================
+$('o-makkahHotelName').textContent = $('makkahHotel').value;
+renderPax(); renderPaxTable();
+renderBookingRows(makkahRows,'makkahRowsList','o-makkah-tbody');
+renderBookingTable(makkahRows,'o-makkah-tbody');
+renderBookingRows(madinahRows,'madinahRowsList','o-madinah-tbody','#7a5010');
+renderBookingTable(madinahRows,'o-madinah-tbody');
+renderTransport(); renderTransportTable();
+renderTermsEditor(); renderTermsPreview();
+refreshQR();
 </script>
 </body>
 </html>
-
