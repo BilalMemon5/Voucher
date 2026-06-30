@@ -27,14 +27,13 @@ body{font-family:var(--font-ui);background:var(--bg);color:var(--ink);font-size:
 .btn-white:hover{background:var(--green-light)}
 .btn-gold{background:var(--gold);color:#fff}
 .btn-gold:hover{background:#a07309}
-.workspace{display:grid;grid-template-columns:400px 1fr;height:calc(100vh - 56px)}
+.workspace{display:grid;grid-template-columns:420px 1fr;height:calc(100vh - 56px)}
 .editor{background:var(--paper);border-right:1px solid var(--border);overflow-y:auto}
 .editor-inner{padding:20px 20px 60px}
 .section{padding:16px 0 20px;border-bottom:1px solid var(--border)}
 .section:last-child{border-bottom:none}
 .sec-title{display:flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--green);margin-bottom:14px}
 .sec-title::before{content:'';width:3px;height:14px;background:var(--gold);border-radius:2px;flex-shrink:0}
-.sec-icon{font-size:.9rem}
 .field{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}
 .field label{font-size:.7rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3)}
 .field input,.field select,.field textarea{border:1px solid var(--border);border-radius:5px;padding:8px 10px;font-size:.88rem;font-family:var(--font-ui);color:var(--ink);background:#f9fbfb;outline:none;transition:border-color .15s,box-shadow .15s}
@@ -44,13 +43,7 @@ body{font-family:var(--font-ui);background:var(--bg);color:var(--ink);font-size:
 .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
 .logo-upload-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:2px}
 .logo-fname{font-size:.7rem;color:var(--ink-3);font-style:italic}
-
-/* Hotel Section Cards */
 .hotel-card{background:#f5f9f8;border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:12px}
-.hotel-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px;display:flex;align-items:center;gap:6px}
-.hotel-card-title.makkah{color:#1a5c52}
-.hotel-card-title.madinah{color:#6b4c10}
-.hotel-card-title.transport{color:#2c3e6b}
 .toggle-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
 .toggle-label{font-size:.72rem;font-weight:600;color:var(--ink-2)}
 .toggle{position:relative;display:inline-block;width:38px;height:20px}
@@ -59,8 +52,6 @@ body{font-family:var(--font-ui);background:var(--bg);color:var(--ink);font-size:
 .toggle-slider::before{content:'';position:absolute;height:14px;width:14px;left:3px;bottom:3px;background:white;border-radius:50%;transition:.3s}
 input:checked+.toggle-slider{background:var(--green)}
 input:checked+.toggle-slider::before{transform:translateX(18px)}
-
-/* Booking rows */
 .booking-head-mak{display:grid;grid-template-columns:1.4fr 1fr 1fr .6fr 1.2fr .5fr .5fr .7fr 22px;gap:5px;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);padding:0 4px 5px}
 .rows-list{display:flex;flex-direction:column;gap:7px}
 .row-card-mak{display:grid;grid-template-columns:1.4fr 1fr 1fr .6fr 1.2fr .5fr .5fr .7fr 22px;gap:5px;align-items:center;background:#fff;border:1px solid var(--border);border-radius:6px;padding:7px 5px}
@@ -69,20 +60,19 @@ input:checked+.toggle-slider::before{transform:translateX(18px)}
 .row-del{background:none;border:none;cursor:pointer;color:var(--ink-3);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .15s}
 .row-del:hover{background:#fce8e8;color:#b03030}
 .row-del svg{width:12px;height:12px}
-
 /* Transport rows */
 .transport-row{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 22px;gap:5px;align-items:center;background:#fff;border:1px solid var(--border);border-radius:6px;padding:7px 5px;margin-bottom:6px}
 .transport-row input,.transport-row select{width:100%;border:1px solid var(--border);border-radius:4px;padding:5px;font-size:.76rem;background:#fff;outline:none;min-width:0}
-.transport-row input:focus,.transport-row select:focus{border-color:#2c3e6b}
 .transport-head{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 22px;gap:5px;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);padding:0 4px 5px}
-
+/* Flight rows */
+.flight-row{display:grid;grid-template-columns:.8fr .7fr .8fr .7fr .7fr 22px;gap:5px;align-items:center;background:#fff;border:1px solid var(--border);border-radius:6px;padding:7px 5px;margin-bottom:6px}
+.flight-row input,.flight-row select{width:100%;border:1px solid var(--border);border-radius:4px;padding:5px;font-size:.76rem;background:#fff;outline:none;min-width:0;font-family:monospace}
+.flight-head{display:grid;grid-template-columns:.8fr .7fr .8fr .7fr .7fr 22px;gap:5px;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);padding:0 4px 5px}
 /* Passengers */
 .pax-row{background:#fff;border:1px solid var(--border);border-radius:6px;padding:8px;margin-bottom:8px}
 .pax-row-top{display:grid;grid-template-columns:2fr 1.5fr 1fr 22px;gap:6px;align-items:center;margin-bottom:0}
 .pax-row-top input,.pax-row-top select{width:100%;border:1px solid var(--border);border-radius:4px;padding:5px;font-size:.76rem;background:#fff;outline:none;min-width:0}
-.pax-num{font-size:.65rem;font-weight:700;background:var(--green);color:#fff;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .pax-head{display:grid;grid-template-columns:2fr 1.5fr 1fr 22px;gap:6px;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);padding:0 4px 5px}
-
 .terms-list{display:flex;flex-direction:column;gap:7px}
 .term-card{display:flex;gap:7px;align-items:flex-start;background:#f5f9f8;border:1px solid var(--border);border-radius:6px;padding:7px}
 .term-card textarea{flex:1;resize:vertical;border:1px solid var(--border);border-radius:4px;padding:6px 8px;font-size:.82rem;font-family:var(--font-ui);background:#fff;outline:none;min-height:36px}
@@ -92,67 +82,92 @@ input:checked+.toggle-slider::before{transform:translateX(18px)}
 .btn-add svg{width:13px;height:13px}
 .preview{background:#dce6e4;overflow-y:auto;padding:28px 24px;display:flex;flex-direction:column;align-items:center;gap:24px}
 .preview-label{font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#6b8c87;background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.8);padding:5px 14px;border-radius:20px}
-.voucher{width:794px;min-height:1123px;background:var(--paper);box-shadow:0 8px 40px rgba(0,0,0,.18);padding:40px 48px 56px;position:relative;font-family:var(--font-ui);flex-shrink:0}
+
+/* ===== VOUCHER STYLES ===== */
+.voucher{width:794px;background:var(--paper);box-shadow:0 8px 40px rgba(0,0,0,.18);padding:36px 44px 50px;position:relative;font-family:var(--font-ui);flex-shrink:0}
 .v-bar{position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,var(--green) 0%,var(--gold) 50%,var(--green) 100%)}
 .v-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-top:14px;padding-bottom:18px;border-bottom:1.5px solid var(--border)}
-.v-logo-wrap{width:110px;height:110px;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;color:var(--green);flex-shrink:0;border:1px solid var(--border);background:var(--green-light);position:relative}
-.v-logo-wrap svg{width:44px;height:44px}
-.v-logo-wrap img{width:120px;height:120px;object-fit:cover;position:absolute;top:52%;left:50%;transform:translate(-50%,-50%)}
-.v-agency{display:flex;align-items:center;gap:14px}
-.v-agency-name{font-family:var(--font-head);font-size:1.18rem;font-weight:700;color:var(--green);line-height:1.2;margin-bottom:4px}
-.v-agency-info{font-size:.78rem;color:var(--ink-2);line-height:1.7}
+.v-logo-wrap{width:100px;height:100px;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;color:var(--green);flex-shrink:0;border:1px solid var(--border);background:var(--green-light);position:relative}
+.v-logo-wrap svg{width:40px;height:40px}
+.v-logo-wrap img{width:110px;height:110px;object-fit:cover;position:absolute;top:52%;left:50%;transform:translate(-50%,-50%)}
+.v-agency{display:flex;align-items:center;gap:12px}
+.v-agency-name{font-family:var(--font-head);font-size:1.1rem;font-weight:700;color:var(--green);line-height:1.2;margin-bottom:4px}
+.v-agency-info{font-size:.75rem;color:var(--ink-2);line-height:1.7}
 .v-agency-info.phones{color:var(--green);font-weight:600}
-.v-stamp{font-family:var(--font-head);font-size:.88rem;font-weight:700;color:var(--green);border:2px solid var(--green);border-radius:8px;padding:6px 14px;transform:rotate(-5deg);position:relative;flex-shrink:0;letter-spacing:.03em;text-transform:uppercase}
+.v-stamp{font-family:var(--font-head);font-size:.85rem;font-weight:700;color:var(--green);border:2px solid var(--green);border-radius:8px;padding:5px 12px;transform:rotate(-5deg);position:relative;flex-shrink:0;letter-spacing:.03em;text-transform:uppercase}
 .v-stamp::after{content:'';position:absolute;inset:3px;border:1px dashed var(--green-mid);border-radius:5px;opacity:.4}
-.v-title{text-align:center;font-family:var(--font-head);font-size:1.45rem;font-weight:700;color:var(--green);margin:22px 0 4px}
-.v-title-line{width:60px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 20px}
-.v-meta{display:flex;gap:32px;background:var(--green-light);border-radius:8px;padding:12px 16px;margin-bottom:18px}
+.v-title{text-align:center;font-family:var(--font-head);font-size:1.4rem;font-weight:700;color:var(--green);margin:20px 0 4px}
+.v-title-line{width:60px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 18px}
+.v-meta{display:flex;gap:28px;background:var(--green-light);border-radius:8px;padding:10px 14px;margin-bottom:16px;flex-wrap:wrap}
 .v-meta-item{display:flex;flex-direction:column;gap:2px}
-.v-meta-key{font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
-.v-meta-val{font-size:.88rem;font-weight:600;color:var(--ink)}
-.v-greeting{font-size:.88rem;color:var(--ink-2);line-height:1.75;padding:12px 16px;margin-bottom:20px;border-left:3px solid var(--gold);background:#fffdf5;border-radius:0 6px 6px 0}
-.v-greeting .arabic{font-family:var(--font-ar);font-size:1.05rem;color:var(--green);display:block;margin-bottom:4px}
-.v-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 32px;margin-bottom:22px}
+.v-meta-key{font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.v-meta-val{font-size:.85rem;font-weight:600;color:var(--ink)}
+.v-greeting{font-size:.85rem;color:var(--ink-2);line-height:1.75;padding:10px 14px;margin-bottom:16px;border-left:3px solid var(--gold);background:#fffdf5;border-radius:0 6px 6px 0}
+.v-greeting .arabic{font-family:var(--font-ar);font-size:1rem;color:var(--green);display:block;margin-bottom:4px}
+.v-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 28px;margin-bottom:18px}
 .v-info-item{display:flex;flex-direction:column;gap:3px}
-.v-info-key{font-size:.65rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
-.v-info-val{font-size:.96rem;font-weight:600;color:var(--ink)}
-.v-sec-head{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--green);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.v-info-key{font-size:.62rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+.v-info-val{font-size:.9rem;font-weight:600;color:var(--ink)}
+.v-sec-head{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--green);margin-bottom:8px;display:flex;align-items:center;gap:8px}
 .v-sec-head::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0}
 .v-sec-head::after{content:'';flex:1;height:1px;background:var(--border)}
-.v-city-badge{display:inline-flex;align-items:center;gap:4px;font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:10px;margin-left:8px;text-transform:uppercase;letter-spacing:.05em}
+.v-city-badge{display:inline-flex;align-items:center;gap:4px;font-size:.62rem;font-weight:700;padding:2px 8px;border-radius:10px;margin-left:8px;text-transform:uppercase;letter-spacing:.05em}
 .v-city-badge.makkah{background:#d6ece9;color:#1a5c52}
 .v-city-badge.madinah{background:#fdf0d6;color:#7a5010}
 .v-city-badge.transport{background:#dde2f5;color:#2c3e6b}
-.v-table{width:100%;border-collapse:collapse;margin-bottom:16px;font-size:.76rem}
-.v-table thead th{background:var(--green);color:#fff;font-size:.63rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:8px 7px;text-align:left}
+.v-city-badge.flight{background:#e8dff5;color:#4a1d8c}
+.v-table{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:.74rem}
+.v-table thead th{background:var(--green);color:#fff;font-size:.6rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:7px 6px;text-align:left}
 .v-table thead th:first-child{border-radius:6px 0 0 0}
 .v-table thead th:last-child{border-radius:0 6px 0 0}
-.v-table tbody td{padding:7px;border-bottom:1px solid var(--border);color:var(--ink-2);font-size:.76rem}
+.v-table tbody td{padding:6px;border-bottom:1px solid var(--border);color:var(--ink-2);font-size:.74rem}
 .v-table tbody tr:nth-child(even){background:#f5f9f8}
-.v-table-transport thead{background-color:#2c3e6b}
 .v-table-transport thead th{background:#2c3e6b}
 .v-table-madinah thead th{background:#7a5010}
+
+/* Flight section - simple table style */
+.v-flight-wrap{margin-bottom:14px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.v-flight-block{border:1.5px solid var(--ink);border-radius:0;overflow:hidden}
+.v-flight-block.hidden{display:none}
+.v-flight-label{font-size:.78rem;font-weight:700;text-align:center;padding:7px 8px;background:#f0f0f0;border-bottom:1.5px solid var(--ink)}
+.v-flight-table-simple{width:100%;border-collapse:collapse;font-size:.74rem}
+.v-flight-table-simple th{padding:6px 8px;text-align:left;font-weight:700;border-bottom:1.5px solid var(--ink);border-right:1px solid #ccc}
+.v-flight-table-simple th:last-child{border-right:none}
+.v-flight-table-simple td{padding:6px 8px;border-right:1px solid #ccc;font-family:monospace;font-weight:600;color:var(--ink)}
+.v-flight-table-simple td:last-child{border-right:none}
+.v-flight-table-simple tr+tr td{border-top:1px solid #e3e3e3}
+
 .hcn{font-weight:700;color:var(--gold)}
-.v-pax-table{width:100%;border-collapse:collapse;margin-bottom:22px;font-size:.76rem}
-.v-pax-table thead th{background:#2a4a42;color:#fff;font-size:.63rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:8px 7px;text-align:left}
+.v-pax-table{width:100%;border-collapse:collapse;margin-bottom:18px;font-size:.74rem}
+.v-pax-table thead th{background:#2a4a42;color:#fff;font-size:.6rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:7px 6px;text-align:left}
 .v-pax-table thead th:first-child{border-radius:6px 0 0 0}
 .v-pax-table thead th:last-child{border-radius:0 6px 0 0}
-.v-pax-table tbody td{padding:7px;border-bottom:1px solid var(--border);color:var(--ink-2)}
+.v-pax-table tbody td{padding:6px;border-bottom:1px solid var(--border);color:var(--ink-2)}
 .v-pax-table tbody tr:nth-child(even){background:#f5f9f8}
-.passport-no{font-family:monospace;font-size:.78rem;color:var(--ink);font-weight:600;letter-spacing:.04em}
-.v-terms{padding-left:18px;margin-bottom:20px}
-.v-terms li{font-size:.8rem;color:var(--ink-2);line-height:1.65;margin-bottom:5px}
-.v-divider{height:1px;background:var(--border);margin:18px 0}
-.v-contact-head{font-size:.78rem;font-weight:700;color:var(--ink);margin-bottom:4px}
-.v-contact-val{font-size:.82rem;color:var(--green);font-weight:600}
-.v-closing{font-family:var(--font-head);font-style:italic;font-size:.98rem;color:var(--ink-2);margin-top:22px}
-.v-closing2{font-size:.85rem;color:var(--ink-3);margin-top:8px;font-style:italic}
-.v-qr-block{display:flex;align-items:center;gap:14px;margin-top:24px;padding-top:18px;border-top:1px dashed var(--border)}
-.v-qr-block .qrbox{width:84px;height:84px;background:#fff;border:1px solid var(--border);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:4px}
+.passport-no{font-family:monospace;font-size:.76rem;color:var(--ink);font-weight:600;letter-spacing:.04em}
+.v-terms{padding-left:18px;margin-bottom:18px}
+.v-terms li{font-size:.76rem;color:var(--ink-2);line-height:1.6;margin-bottom:4px}
+.v-divider{height:1px;background:var(--border);margin:16px 0}
+
+/* Dual contact block */
+.v-contact-dual{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.v-contact-card{background:var(--green-light);border-radius:8px;padding:10px 14px}
+.v-contact-card.madinah-card{background:#fdf0d6}
+.v-contact-label{font-size:.62rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3);margin-bottom:3px}
+.v-contact-name{font-size:.82rem;font-weight:700;color:var(--green);margin-bottom:1px}
+.v-contact-card.madinah-card .v-contact-name{color:#7a5010}
+.v-contact-num{font-size:.88rem;font-weight:700;color:var(--green)}
+.v-contact-card.madinah-card .v-contact-num{color:#7a5010}
+
+.v-closing{font-family:var(--font-head);font-style:italic;font-size:.95rem;color:var(--ink-2);margin-top:18px}
+.v-closing2{font-size:.82rem;color:var(--ink-3);margin-top:6px;font-style:italic}
+.v-qr-block{display:flex;align-items:center;gap:14px;margin-top:20px;padding-top:16px;border-top:1px dashed var(--border)}
+.v-qr-block .qrbox{width:80px;height:80px;background:#fff;border:1px solid var(--border);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:4px}
 .v-qr-block .qrbox img,.v-qr-block .qrbox canvas{width:100%;height:100%}
-.v-qr-text{font-size:.74rem;color:var(--ink-3);line-height:1.6}
+.v-qr-text{font-size:.72rem;color:var(--ink-3);line-height:1.6}
 .v-qr-text b{color:var(--green);font-weight:700}
 .v-footer{position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--green) 0%,var(--gold) 50%,var(--green) 100%)}
+
 .panel-card{width:794px;background:var(--paper);border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,.1);padding:20px 24px;flex-shrink:0}
 .panel-card h3{font-family:var(--font-head);font-size:1rem;color:var(--green);margin-bottom:10px;display:flex;align-items:center;gap:8px}
 .panel-card h3 svg{width:18px;height:18px}
@@ -161,22 +176,30 @@ input:checked+.toggle-slider::before{transform:translateX(18px)}
 .panel-note code{background:#eef3f1;padding:1px 5px;border-radius:3px;font-size:.76rem}
 .hidden{display:none!important}
 
+/* PRINT — multi-page support */
 @media print{
-  @page{size:A4;margin:0}
+  @page{size:A4;margin:10mm 13mm}
   body *{visibility:hidden}
   .voucher,.voucher *{visibility:visible}
-  .voucher{position:fixed;top:0;left:0;width:210mm;min-height:297mm;box-shadow:none;padding:10mm 13mm 12mm;font-size:10pt}
-  .v-title{font-size:17pt}
-  .v-agency-name{font-size:12pt}
-  .v-table{font-size:8pt}
-  .v-table thead th{padding:5px}
-  .v-table tbody td{padding:4px 5px}
-  .v-pax-table{font-size:8pt}
-  .v-meta{padding:8px 12px}
-  .v-bar,.v-footer{height:4px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .v-table thead,.v-pax-table thead,.v-table-madinah thead,.v-table-transport thead{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .voucher{position:static!important;width:100%!important;min-height:auto!important;box-shadow:none!important;padding:0!important;font-size:9.5pt}
+  .v-bar{display:none}
+  .v-footer{display:none}
+  .v-title{font-size:16pt}
+  .v-agency-name{font-size:11.5pt}
+  .v-table,.v-pax-table,.v-flight-table{font-size:7.5pt;page-break-inside:auto}
+  .v-table thead,.v-pax-table thead,.v-flight-table{page-break-inside:avoid}
+  .v-table tbody tr,.v-pax-table tbody tr{page-break-inside:avoid}
+  .v-flight-grid{page-break-inside:avoid}
+  .v-table thead th,.v-table-madinah thead th,.v-table-transport thead th{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .v-pax-table thead th{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .v-flight-table th{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .v-flight-dir{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .v-contact-card,.v-contact-card.madinah-card{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .v-meta{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .v-greeting{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .v-sec-head::before,.v-title-line{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
-@media(max-width:900px){.workspace{grid-template-columns:1fr;height:auto}.editor{max-height:55vh}.preview{padding:16px}.voucher,.panel-card{width:100%;min-height:auto;padding:28px 20px 36px}}
+@media(max-width:900px){.workspace{grid-template-columns:1fr;height:auto}.editor{max-height:55vh}.preview{padding:16px}.voucher,.panel-card{width:100%;min-height:auto;padding:24px 16px 32px}}
 button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--green-mid);outline-offset:2px}
 </style>
 </head>
@@ -227,7 +250,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
       <div class="sec-title">Voucher Info</div>
       <div class="row2"><div class="field"><label>Date</label><input type="date" id="vDate"></div><div class="field"><label>Voucher No.</label><input id="vNo" value="22588"></div></div>
       <div class="row2">
-        <div class="field"><label>Addressed To</label><input id="toName" value="Zain"></div>
+        <div class="field"><label>From (Agency Rep)</label><input id="fromName" value="Karwan e Marhaba" placeholder="e.g. Haris / Office"></div>
         <div class="field"><label>Status</label><select id="status"><option>Confirmed</option><option>Pending</option><option>On Hold</option><option>Cancelled</option></select></div>
       </div>
     </div>
@@ -309,6 +332,35 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
       </div>
     </div>
 
+    <!-- Flights -->
+    <div class="section">
+      <div class="sec-title">✈️ Flight Details</div>
+      <div class="hotel-card">
+        <div class="toggle-row">
+          <label class="toggle"><input type="checkbox" id="flightEnabled"><span class="toggle-slider"></span></label>
+          <span class="toggle-label">Include Flight Details</span>
+        </div>
+        <div id="flightFields" class="hidden">
+          <div style="font-size:.7rem;font-weight:700;color:#4a1d8c;margin-bottom:4px;letter-spacing:.04em;">🛫 Departure</div>
+          <div class="hint" style="margin-bottom:6px;display:block;">Example: PK 731 10JUL KHI JED 1010 1220</div>
+          <div class="flight-head"><span>Flight</span><span>Date</span><span>Sector</span><span>Dep Time</span><span>Arr Time</span><span></span></div>
+          <div id="depFlightList"></div>
+          <button class="btn-add" id="addDepFlight" style="margin-bottom:14px;">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            Add Departure Flight
+          </button>
+          <div style="font-size:.7rem;font-weight:700;color:#1a3a7a;margin-bottom:4px;letter-spacing:.04em;">🛬 Return</div>
+          <div class="hint" style="margin-bottom:6px;display:block;">Example: PK 732 21JUL JED KHI 2220 0440</div>
+          <div class="flight-head"><span>Flight</span><span>Date</span><span>Sector</span><span>Dep Time</span><span>Arr Time</span><span></span></div>
+          <div id="retFlightList"></div>
+          <button class="btn-add" id="addRetFlight">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            Add Return Flight
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!-- Terms -->
     <div class="section">
       <div class="sec-title">Terms &amp; Conditions</div>
@@ -322,9 +374,19 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
     <!-- Contact -->
     <div class="section">
       <div class="sec-title">Contact &amp; Sign-off</div>
-      <div class="field"><label>Contact Heading</label><input id="contactHead" value="Contact (Only For Makkah Staff)"></div>
-      <div class="row2"><div class="field"><label>Contact Name</label><input id="contactName" value="Haris"></div><div class="field"><label>Contact Number</label><input id="contactNum" value="0580652033"></div></div>
-      <div class="field"><label>Closing Line</label><input id="closing" value="Thank You and Best Regards"></div>
+      <div style="font-size:.72rem;font-weight:700;color:var(--green);margin-bottom:6px;letter-spacing:.04em;">🕋 Makkah Contact</div>
+      <div class="field"><label>Makkah Contact Label</label><input id="makkahContactLabel" value="Contact (Makkah Staff Only)"></div>
+      <div class="row2"><div class="field"><label>Makkah Contact Name</label><input id="makkahContactName" value="Haris"></div><div class="field"><label>Makkah Contact Number</label><input id="makkahContactNum" value="0580652033"></div></div>
+      <div style="font-size:.72rem;font-weight:700;color:#7a5010;margin:10px 0 6px;letter-spacing:.04em;">🕌 Madinah Contact</div>
+      <div class="toggle-row" style="margin-bottom:6px;">
+        <label class="toggle"><input type="checkbox" id="madinahContactEnabled"><span class="toggle-slider"></span></label>
+        <span class="toggle-label">Include Madinah Contact</span>
+      </div>
+      <div id="madinahContactFields" class="hidden">
+        <div class="field"><label>Madinah Contact Label</label><input id="madinahContactLabel" value="Contact (Madinah Staff Only)"></div>
+        <div class="row2"><div class="field"><label>Madinah Contact Name</label><input id="madinahContactName" value=""></div><div class="field"><label>Madinah Contact Number</label><input id="madinahContactNum" value=""></div></div>
+      </div>
+      <div class="field" style="margin-top:10px;"><label>Closing Line</label><input id="closing" value="Thank You and Best Regards"></div>
       <div class="field"><label>Second Closing Line</label><input id="closing2" value=""></div>
     </div>
 
@@ -353,7 +415,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 
       <div class="v-meta">
         <div class="v-meta-item"><div class="v-meta-key">Date</div><div class="v-meta-val" id="o-date">—</div></div>
-        <div class="v-meta-item"><div class="v-meta-key">To</div><div class="v-meta-val" id="o-to">Zain</div></div>
+        <div class="v-meta-item"><div class="v-meta-key">From</div><div class="v-meta-val" id="o-from">Karwan e Marhaba</div></div>
         <div class="v-meta-item"><div class="v-meta-key">Voucher No.</div><div class="v-meta-val" id="o-vno">22588</div></div>
       </div>
 
@@ -391,12 +453,42 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
         <table class="v-table v-table-transport"><thead><tr><th>#</th><th>Route / Description</th><th>Date</th><th>Time</th><th>Type</th></tr></thead><tbody id="o-transport-tbody"></tbody></table>
       </div>
 
+      <!-- Flight Preview -->
+      <div id="o-flight-section" class="hidden">
+        <div class="v-sec-head">✈️ Flight Details</div>
+        <div class="v-flight-wrap">
+          <div class="v-flight-block" id="o-dep-flight-block">
+            <div class="v-flight-label">Departure</div>
+            <table class="v-flight-table-simple"><thead><tr><th>Flight</th><th>Sector</th><th>Departure</th><th>Arrival</th></tr></thead><tbody id="o-dep-flight-tbody"></tbody></table>
+          </div>
+          <div class="v-flight-block" id="o-ret-flight-block">
+            <div class="v-flight-label">Return</div>
+            <table class="v-flight-table-simple"><thead><tr><th>Flight</th><th>Sector</th><th>Departure</th><th>Arrival</th></tr></thead><tbody id="o-ret-flight-tbody"></tbody></table>
+          </div>
+        </div>
+      </div>
+
       <div class="v-sec-head">Terms &amp; Conditions</div>
       <ol class="v-terms" id="o-terms"></ol>
 
       <div class="v-divider"></div>
-      <div class="v-contact-head" id="o-contactHead">Contact (Only For Makkah Staff)</div>
-      <div class="v-contact-val"><span id="o-contactName">Haris</span>: <span id="o-contactNum">0580652033</span></div>
+
+      <!-- Dual contact block -->
+      <div id="o-contact-section">
+        <div class="v-contact-dual">
+          <div class="v-contact-card" id="o-makkah-contact-card">
+            <div class="v-contact-label" id="o-makkahContactLabel">Contact (Makkah Staff Only)</div>
+            <div class="v-contact-name" id="o-makkahContactName">Haris</div>
+            <div class="v-contact-num" id="o-makkahContactNum">0580652033</div>
+          </div>
+          <div class="v-contact-card madinah-card" id="o-madinah-contact-card" style="display:none;">
+            <div class="v-contact-label" id="o-madinahContactLabel">Contact (Madinah Staff Only)</div>
+            <div class="v-contact-name" id="o-madinahContactName"></div>
+            <div class="v-contact-num" id="o-madinahContactNum"></div>
+          </div>
+        </div>
+      </div>
+
       <div class="v-closing" id="o-closing">Thank You and Best Regards</div>
       <div class="v-closing2" id="o-closing2"></div>
 
@@ -426,6 +518,8 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 let makkahRows = [{hcn:'55840-1',checkin:'2026-07-06',checkout:'2026-07-08',nights:2,roomType:'Triple',pax:3,rooms:1,meal:'R/O'}];
 let madinahRows = [];
 let transportRows = [];
+let depFlights = [];
+let retFlights = [];
 let passengers = [{name:'Syed Muhammad Minhajuddin',passport:'AB1234567',type:'Adult'}];
 let terms = ['KSA hotel standard check-in / check-out times: Check-in 16:00, Check-out 12:00 (Noon).','If you choose the transport visa, you must travel using their bus; if you use any other transport, you will be responsible for any penalties.','If there is an issue with check-in or room due to rush at the hotels, we will provide a similar or upgraded hotel; please remain patient in such situations.','We assure you the best services and look forward to welcoming you.'];
 let logoUrl = null;
@@ -437,9 +531,18 @@ const calcN = (a, b) => { if (!a || !b) return ''; const n = Math.round((new Dat
 const slug = s => (s || 'voucher').toString().trim().replace(/[^a-zA-Z0-9-_]+/g, '-').replace(/^-+|-+$/g, '') || 'voucher';
 
 // ===================== BASIC BINDS =====================
-const binds = [['agencyName','o-agencyName'],['agencyAddress','o-agencyAddress'],['phone1','o-phone1'],['phone2','o-phone2'],['toName','o-to'],['vNo','o-vno'],['guestName','o-guest'],['nationality','o-nat'],['contactHead','o-contactHead'],['contactName','o-contactName'],['contactNum','o-contactNum'],['closing','o-closing'],['closing2','o-closing2']];
+const binds = [
+  ['agencyName','o-agencyName'],['agencyAddress','o-agencyAddress'],
+  ['phone1','o-phone1'],['phone2','o-phone2'],
+  ['fromName','o-from'],
+  ['vNo','o-vno'],['guestName','o-guest'],['nationality','o-nat'],
+  ['makkahContactLabel','o-makkahContactLabel'],['makkahContactName','o-makkahContactName'],['makkahContactNum','o-makkahContactNum'],
+  ['madinahContactLabel','o-madinahContactLabel'],['madinahContactName','o-madinahContactName'],['madinahContactNum','o-madinahContactNum'],
+  ['closing','o-closing'],['closing2','o-closing2']
+];
 binds.forEach(([i, o]) => {
   const el = $(i), out = $(o);
+  if (!el || !out) return;
   const s = () => { out.textContent = el.value; refreshQR(); };
   el.addEventListener('input', s); el.addEventListener('change', s); s();
 });
@@ -452,11 +555,10 @@ oDate.textContent = fmtDate(vDate.value);
 const statusEl = $('status'), oStatus = $('o-status');
 statusEl.addEventListener('change', () => { oStatus.textContent = statusEl.value; refreshQR(); });
 
-// Hotel name binds
 $('makkahHotel').addEventListener('input', () => { $('o-makkahHotelName').textContent = $('makkahHotel').value; refreshQR(); });
 $('madinahHotel').addEventListener('input', () => { $('o-madinahHotelName').textContent = $('madinahHotel').value; refreshQR(); });
 
-// ===================== TOGGLE SECTIONS =====================
+// ===================== TOGGLES =====================
 $('makkahEnabled').addEventListener('change', () => {
   $('makkahFields').classList.toggle('hidden', !$('makkahEnabled').checked);
   $('o-makkah-section').classList.toggle('hidden', !$('makkahEnabled').checked);
@@ -470,6 +572,17 @@ $('madinahEnabled').addEventListener('change', () => {
 $('transportEnabled').addEventListener('change', () => {
   $('transportFields').classList.toggle('hidden', !$('transportEnabled').checked);
   $('o-transport-section').classList.toggle('hidden', !$('transportEnabled').checked);
+  refreshQR();
+});
+$('flightEnabled').addEventListener('change', () => {
+  $('flightFields').classList.toggle('hidden', !$('flightEnabled').checked);
+  $('o-flight-section').classList.toggle('hidden', !$('flightEnabled').checked);
+  refreshQR();
+});
+$('madinahContactEnabled').addEventListener('change', () => {
+  const on = $('madinahContactEnabled').checked;
+  $('madinahContactFields').classList.toggle('hidden', !on);
+  $('o-madinah-contact-card').style.display = on ? '' : 'none';
   refreshQR();
 });
 
@@ -508,11 +621,10 @@ function renderPaxTable() {
 }
 $('addPax').addEventListener('click', () => { passengers.push({name:'',passport:'',type:'Adult'}); renderPax(); renderPaxTable(); refreshQR(); });
 
-// ===================== BOOKING ROWS (generic) =====================
+// ===================== BOOKING ROWS =====================
 function makeBookingRow(r, i, rows, listId, tbodyId, hotelColor) {
   const tpl = document.createElement('div');
   tpl.className = 'row-card-mak';
-  tpl.style.setProperty('--row-color', hotelColor || 'var(--green-mid)');
   tpl.innerHTML = `
     <input type="text" data-k="hcn" value="${esc(r.hcn)}" placeholder="55840-1">
     <input type="date" data-k="checkin" value="${r.checkin||''}">
@@ -554,7 +666,6 @@ function renderBookingTable(rows, tbodyId) {
     tbody.appendChild(tr);
   });
 }
-
 $('addMakkahRow').addEventListener('click', () => { makkahRows.push({hcn:'',checkin:'',checkout:'',nights:'',roomType:'',pax:'',rooms:'',meal:''}); renderBookingRows(makkahRows,'makkahRowsList','o-makkah-tbody'); renderBookingTable(makkahRows,'o-makkah-tbody'); refreshQR(); });
 $('addMadinahRow').addEventListener('click', () => { madinahRows.push({hcn:'',checkin:'',checkout:'',nights:'',roomType:'',pax:'',rooms:'',meal:''}); renderBookingRows(madinahRows,'madinahRowsList','o-madinah-tbody','#7a5010'); renderBookingTable(madinahRows,'o-madinah-tbody'); refreshQR(); });
 
@@ -586,6 +697,45 @@ function renderTransportTable() {
   });
 }
 $('addTransport').addEventListener('click', () => { transportRows.push({route:'',date:'',time:'',type:''}); renderTransport(); renderTransportTable(); refreshQR(); });
+
+// ===================== FLIGHTS =====================
+function makeFlightRow(f, i, arr, listId) {
+  const div = document.createElement('div');
+  div.className = 'flight-row';
+  div.innerHTML = `
+    <input type="text" data-k="flight" value="${esc(f.flight)}" placeholder="PK 731">
+    <input type="text" data-k="date" value="${esc(f.date)}" placeholder="10JUL">
+    <input type="text" data-k="sector" value="${esc(f.sector)}" placeholder="KHI JED">
+    <input type="text" data-k="depTime" value="${esc(f.depTime)}" placeholder="1010">
+    <input type="text" data-k="arrTime" value="${esc(f.arrTime)}" placeholder="1220">
+    <button class="row-del" type="button"><svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>`;
+  div.querySelectorAll('input').forEach(inp => {
+    inp.addEventListener('input', () => { arr[i][inp.dataset.k] = inp.value; renderFlightTables(); refreshQR(); });
+  });
+  div.querySelector('.row-del').addEventListener('click', () => {
+    arr.splice(i, 1);
+    renderFlightRows(arr, listId);
+    renderFlightTables(); refreshQR();
+  });
+  return div;
+}
+function renderFlightRows(arr, listId) {
+  const list = $(listId); list.innerHTML = '';
+  arr.forEach((f, i) => list.appendChild(makeFlightRow(f, i, arr, listId)));
+}
+function flightRowHTML(f) {
+  return `<tr><td>${esc(f.flight)}</td><td>${esc(f.sector)}</td><td>${esc(f.date)} ${esc(f.depTime)}</td><td>${esc(f.date)} ${esc(f.arrTime)}</td></tr>`;
+}
+function renderFlightTables() {
+  const depTbody = $('o-dep-flight-tbody'); depTbody.innerHTML = depFlights.map(flightRowHTML).join('');
+  const retTbody = $('o-ret-flight-tbody'); retTbody.innerHTML = retFlights.map(flightRowHTML).join('');
+  $('o-dep-flight-block').classList.toggle('hidden', depFlights.length === 0);
+  $('o-ret-flight-block').classList.toggle('hidden', retFlights.length === 0);
+  const hasFlight = $('flightEnabled').checked;
+  $('o-flight-section').classList.toggle('hidden', !hasFlight);
+}
+$('addDepFlight').addEventListener('click', () => { depFlights.push({flight:'',date:'',sector:'',depTime:'',arrTime:''}); renderFlightRows(depFlights,'depFlightList'); renderFlightTables(); refreshQR(); });
+$('addRetFlight').addEventListener('click', () => { retFlights.push({flight:'',date:'',sector:'',depTime:'',arrTime:''}); renderFlightRows(retFlights,'retFlightList'); renderFlightTables(); refreshQR(); });
 
 // ===================== TERMS =====================
 function renderTermsEditor() {
@@ -630,7 +780,7 @@ function refreshQR() {
   const link = currentLink();
   $('o-qrLink').textContent = link;
   const box = $('qrPreview'); box.innerHTML = '';
-  try { new QRCode(box, { text: link.split('  (')[0], width: 76, height: 76, colorDark: '#1a5c52', colorLight: '#ffffff' }); } catch(e) {}
+  try { new QRCode(box, { text: link.split('  (')[0], width: 72, height: 72, colorDark: '#1a5c52', colorLight: '#ffffff' }); } catch(e) {}
 }
 $('baseUrl').addEventListener('input', refreshQR);
 
@@ -639,19 +789,26 @@ $('printBtn').addEventListener('click', () => window.print());
 
 // ===================== TRACKING PAGE BUILD =====================
 function buildTrackingPageHTML() {
+  const makkahOn = $('madinahContactEnabled').checked;
   const data = {
     agencyName: $('agencyName').value, agencyAddress: $('agencyAddress').value,
     phone1: $('phone1').value, phone2: $('phone2').value,
-    vDate: fmtDate(vDate.value), vNo: $('vNo').value, toName: $('toName').value, status: statusEl.value,
+    vDate: fmtDate(vDate.value), vNo: $('vNo').value, fromName: $('fromName').value, status: statusEl.value,
     guestName: $('guestName').value, nationality: $('nationality').value,
     makkahEnabled: $('makkahEnabled').checked, makkahHotel: $('makkahHotel').value,
     madinahEnabled: $('madinahEnabled').checked, madinahHotel: $('madinahHotel').value,
     transportEnabled: $('transportEnabled').checked,
-    contactHead: $('contactHead').value, contactName: $('contactName').value, contactNum: $('contactNum').value,
+    flightEnabled: $('flightEnabled').checked,
+    makkahContactLabel: $('makkahContactLabel').value,
+    makkahContactName: $('makkahContactName').value, makkahContactNum: $('makkahContactNum').value,
+    madinahContactEnabled: $('madinahContactEnabled').checked,
+    madinahContactLabel: $('madinahContactLabel').value,
+    madinahContactName: $('madinahContactName').value, madinahContactNum: $('madinahContactNum').value,
     closing: $('closing').value, closing2: $('closing2').value,
     makkahRows: makkahRows.map(r => ({...r, checkinF: fmtDate(r.checkin), checkoutF: fmtDate(r.checkout)})),
     madinahRows: madinahRows.map(r => ({...r, checkinF: fmtDate(r.checkin), checkoutF: fmtDate(r.checkout)})),
     transportRows: transportRows.map(t => ({...t, dateF: fmtDate(t.date)})),
+    depFlights: depFlights, retFlights: retFlights,
     passengers: passengers,
     terms: terms, logoUrl: logoUrl
   };
@@ -666,15 +823,38 @@ function buildTrackingPageHTML() {
 
   const makkahHtml = data.makkahEnabled && data.makkahRows.length ? `
     <div class="sechead">🕋 Makkah Hotel — <span style="font-weight:700;color:#1a5c52">${esc(data.makkahHotel)}</span></div>
-    ${data.makkahRows.map(r=>`<div class="seg"><div class="seg-top"><span class="seg-hotel">HCN ${esc(r.hcn)}</span><span class="seg-city" style="background:#d6ece9;color:#1a5c52">${esc(r.roomType||'')}</span></div><div class="seg-rows"><span>Check-in <b>${esc(r.checkinF)}</b></span><span>Check-out <b>${esc(r.checkoutF)}</b></span><span>Nights <b>${esc(String(r.nights??''))}</b></span><span>Pax <b>${esc(String(r.pax??''))}</b></span><span>Rooms <b>${esc(String(r.rooms??''))}</b></span><span>Meal <b>${esc(r.meal)}</b></span></div></div>`).join('')}` : '';
+    ${data.makkahRows.map(r=>`<div class="seg"><div class="seg-top"><span class="seg-hotel">HCN ${esc(r.hcn)}</span><span class="seg-city mak">${esc(r.roomType||'')}</span></div><div class="seg-rows"><span>Check-in <b>${esc(r.checkinF)}</b></span><span>Check-out <b>${esc(r.checkoutF)}</b></span><span>Nights <b>${esc(String(r.nights??''))}</b></span><span>Pax <b>${esc(String(r.pax??''))}</b></span><span>Rooms <b>${esc(String(r.rooms??''))}</b></span><span>Meal <b>${esc(r.meal)}</b></span></div></div>`).join('')}` : '';
 
   const madinahHtml = data.madinahEnabled && data.madinahRows.length ? `
     <div class="sechead">🕌 Madinah Hotel — <span style="font-weight:700;color:#7a5010">${esc(data.madinahHotel)}</span></div>
-    ${data.madinahRows.map(r=>`<div class="seg" style="background:#fdf6e8;border-color:#e8d8b0"><div class="seg-top"><span class="seg-hotel">HCN ${esc(r.hcn)}</span><span class="seg-city" style="background:#fdf0d6;color:#7a5010">${esc(r.roomType||'')}</span></div><div class="seg-rows"><span>Check-in <b>${esc(r.checkinF)}</b></span><span>Check-out <b>${esc(r.checkoutF)}</b></span><span>Nights <b>${esc(String(r.nights??''))}</b></span><span>Pax <b>${esc(String(r.pax??''))}</b></span><span>Rooms <b>${esc(String(r.rooms??''))}</b></span><span>Meal <b>${esc(r.meal)}</b></span></div></div>`).join('')}` : '';
+    ${data.madinahRows.map(r=>`<div class="seg mad"><div class="seg-top"><span class="seg-hotel">HCN ${esc(r.hcn)}</span><span class="seg-city mad-c">${esc(r.roomType||'')}</span></div><div class="seg-rows"><span>Check-in <b>${esc(r.checkinF)}</b></span><span>Check-out <b>${esc(r.checkoutF)}</b></span><span>Nights <b>${esc(String(r.nights??''))}</b></span><span>Pax <b>${esc(String(r.pax??''))}</b></span><span>Rooms <b>${esc(String(r.rooms??''))}</b></span><span>Meal <b>${esc(r.meal)}</b></span></div></div>`).join('')}` : '';
 
   const transportHtml = data.transportEnabled && data.transportRows.length ? `
     <div class="sechead">🚌 Transport Details</div>
-    ${data.transportRows.map((t,i)=>`<div class="seg" style="background:#eef0f8;border-color:#c5cae8"><div class="seg-top"><span class="seg-hotel">${i+1}. ${esc(t.route)}</span><span class="seg-city" style="background:#dde2f5;color:#2c3e6b">${esc(t.type)}</span></div><div class="seg-rows"><span>Date <b>${esc(t.dateF)}</b></span><span>Time <b>${esc(t.time)}</b></span></div></div>`).join('')}` : '';
+    ${data.transportRows.map((t,i)=>`<div class="seg trn"><div class="seg-top"><span class="seg-hotel">${i+1}. ${esc(t.route)}</span><span class="seg-city trn-c">${esc(t.type)}</span></div><div class="seg-rows"><span>Date <b>${esc(t.dateF)}</b></span><span>Time <b>${esc(t.time)}</b></span></div></div>`).join('')}` : '';
+
+  const depRows = data.depFlights.map(f=>`<tr><td>${esc(f.flight)}</td><td>${esc(f.sector)}</td><td>${esc(f.date)} ${esc(f.depTime)}</td><td>${esc(f.date)} ${esc(f.arrTime)}</td></tr>`).join('');
+  const retRows = data.retFlights.map(f=>`<tr><td>${esc(f.flight)}</td><td>${esc(f.sector)}</td><td>${esc(f.date)} ${esc(f.depTime)}</td><td>${esc(f.date)} ${esc(f.arrTime)}</td></tr>`).join('');
+  const flightHtml = data.flightEnabled && (data.depFlights.length || data.retFlights.length) ? `
+    <div class="sechead">✈️ Flight Details</div>
+    <div class="flight-wrap">
+      ${data.depFlights.length ? `<div class="flight-block"><div class="flabel">Departure</div><table class="ftable"><thead><tr><th>Flight</th><th>Sector</th><th>Departure</th><th>Arrival</th></tr></thead><tbody>${depRows}</tbody></table></div>` : ''}
+      ${data.retFlights.length ? `<div class="flight-block"><div class="flabel">Return</div><table class="ftable"><thead><tr><th>Flight</th><th>Sector</th><th>Departure</th><th>Arrival</th></tr></thead><tbody>${retRows}</tbody></table></div>` : ''}
+    </div>` : '';
+
+  const contactHtml = `
+    <div class="contact-dual">
+      <div class="contact-card mak-card">
+        <div class="c-lbl">${esc(data.makkahContactLabel)}</div>
+        <div class="c-name">${esc(data.makkahContactName)}</div>
+        <div class="c-num">${esc(data.makkahContactNum)}</div>
+      </div>
+      ${data.madinahContactEnabled ? `<div class="contact-card mad-card">
+        <div class="c-lbl">${esc(data.madinahContactLabel)}</div>
+        <div class="c-name">${esc(data.madinahContactName)}</div>
+        <div class="c-num">${esc(data.madinahContactNum)}</div>
+      </div>` : ''}
+    </div>`;
 
   const termsHtml = data.terms.map(t => `<li>${esc(t)}</li>`).join('');
 
@@ -683,13 +863,13 @@ function buildTrackingPageHTML() {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Booking Status — ${esc(data.vNo)} — ${esc(data.agencyName)}</title>
+<title>Booking — ${esc(data.vNo)} — ${esc(data.agencyName)}</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--green:#0f3d37;--green-mid:#22756a;--green-light:#d6ece9;--gold:#c9a227;--ink:#1a1a1a;--ink-2:#444;--ink-3:#7a8a86;--bg:#faf7ef;--paper:#fff;--border:#e3ddc9}
+:root{--green:#0f3d37;--green-mid:#22756a;--green-light:#d6ece9;--gold:#c9a227;--purple:#4a1d8c;--navy:#1a3a7a;--ink:#1a1a1a;--ink-2:#444;--ink-3:#7a8a86;--bg:#faf7ef;--paper:#fff;--border:#e3ddc9}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:flex;justify-content:center;padding:32px 16px 60px}
-.stub{width:100%;max-width:500px}
+.stub{width:100%;max-width:520px}
 .card{background:var(--paper);border-radius:14px;box-shadow:0 10px 40px rgba(15,61,55,.12);overflow:hidden;border:1px solid var(--border)}
 .head{background:var(--green);color:#fff;padding:24px 24px 20px;text-align:center}
 .crest{width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;overflow:hidden}
@@ -698,8 +878,6 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);min-he
 .agency{font-family:'Playfair Display',serif;font-weight:700;font-size:1.1rem}
 .addr{font-size:.72rem;opacity:.78;margin-top:4px;line-height:1.5}
 .status-pill{display:inline-block;margin-top:12px;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 14px;border-radius:20px;background:var(--gold);color:#3a2c06}
-.perf{height:0;position:relative}
-.perfline{border-top:2px dashed rgba(255,255,255,.35);margin:0 24px}
 .body{padding:26px 24px 8px}
 .greet{font-family:'Amiri',serif;color:var(--green);font-size:1.05rem;margin-bottom:4px}
 .lead{font-size:.84rem;color:var(--ink-2);line-height:1.6;margin-bottom:22px}
@@ -715,22 +893,45 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);min-he
 .ptable tr:nth-child(even) td{background:#f7f4ea}
 .ppno{font-family:monospace;font-weight:700;color:var(--ink);letter-spacing:.05em}
 .seg{background:#f7f4ea;border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+.seg.mad{background:#fdf6e8;border-color:#e8d8b0}
+.seg.trn{background:#eef0f8;border-color:#c5cae8}
 .seg-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;flex-wrap:wrap;gap:6px}
 .seg-hotel{font-weight:600;font-size:.92rem}
 .seg-city{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 8px;border-radius:10px}
+.seg-city.mak{background:#d6ece9;color:#1a5c52}
+.seg-city.mad-c{background:#fdf0d6;color:#7a5010}
+.seg-city.trn-c{background:#dde2f5;color:#2c3e6b}
 .seg-rows{display:flex;gap:16px;flex-wrap:wrap;font-size:.78rem;color:var(--ink-2)}
 .seg-rows b{color:var(--ink);font-weight:600}
+/* Flight styling - simple table */
+.flight-wrap{display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:16px}
+.flight-block{border:1.5px solid var(--ink);border-radius:6px;overflow:hidden}
+.flabel{font-size:.8rem;font-weight:700;text-align:center;padding:8px;background:#f0f0f0;border-bottom:1.5px solid var(--ink)}
+.ftable{width:100%;border-collapse:collapse;font-size:.76rem}
+.ftable th{padding:7px 9px;text-align:left;font-weight:700;border-bottom:1.5px solid var(--ink);border-right:1px solid #ccc}
+.ftable th:last-child{border-right:none}
+.ftable td{padding:7px 9px;border-right:1px solid #ccc;font-family:monospace;font-weight:600;color:var(--ink)}
+.ftable td:last-child{border-right:none}
+.ftable tr+tr td{border-top:1px solid #e3e3e3}
+@media(min-width:481px){.flight-wrap{grid-template-columns:1fr 1fr}}
+/* Contact */
+.contact-dual{display:grid;grid-template-columns:1fr;gap:10px;margin:18px 0}
+.contact-card{border-radius:10px;padding:12px 16px}
+.mak-card{background:var(--green-light)}
+.mad-card{background:#fdf0d6}
+.c-lbl{font-size:.62rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3);margin-bottom:3px}
+.c-name{font-size:.88rem;font-weight:700;color:var(--green);margin-bottom:2px}
+.mad-card .c-name{color:#7a5010}
+.c-num{font-size:.96rem;font-weight:700;color:var(--green)}
+.mad-card .c-num{color:#7a5010}
 .terms{padding-left:18px;margin-bottom:6px}
 .terms li{font-size:.76rem;color:var(--ink-2);line-height:1.6;margin-bottom:5px}
-.contact{display:flex;justify-content:space-between;align-items:center;background:var(--green-light);border-radius:10px;padding:12px 16px;margin:18px 0;flex-wrap:wrap;gap:8px}
-.contact .lbl{font-size:.72rem;color:var(--green);font-weight:700}
-.contact .num{font-size:.92rem;font-weight:700;color:var(--green)}
 .foot{padding:18px 24px 24px;text-align:center}
 .foot .closing{font-family:'Playfair Display',serif;font-style:italic;color:var(--ink-2);font-size:.88rem}
 .foot .closing2{font-size:.78rem;color:var(--ink-3);margin-top:4px;font-style:italic}
 .verify{margin-top:18px;font-size:.68rem;color:var(--ink-3);letter-spacing:.03em}
 .verify b{color:var(--green)}
-@media(max-width:420px){.grid{grid-template-columns:1fr}.seg-rows{gap:10px}.ptable{font-size:.72rem}}
+@media(max-width:480px){.grid{grid-template-columns:1fr}.seg-rows{gap:10px}.ptable{font-size:.72rem}.flight-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -742,26 +943,23 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);min-he
       <div class="addr">${esc(data.agencyAddress)}<br>${esc(data.phone1)} · ${esc(data.phone2)}</div>
       <div class="status-pill">${esc(data.status)}</div>
     </div>
-    <div class="perf"><div class="perfline"></div></div>
     <div class="body">
-      <div class="greet">السلام علیکم، ${esc(data.toName)}</div>
-      <div class="lead">Here are your confirmed booking details. Keep this page for your records — you can return to this link anytime to check your status.</div>
+      <div class="greet">السلام علیکم</div>
+      <div class="lead">Here are your confirmed booking details from <b>${esc(data.fromName)}</b>. Keep this page for your records.</div>
       <div class="grid">
-        <div class="item"><div class="k">Voucher no.</div><div class="v">${esc(data.vNo)}</div></div>
-        <div class="item"><div class="k">Date issued</div><div class="v">${esc(data.vDate)}</div></div>
-        <div class="item"><div class="k">Guest name</div><div class="v">${esc(data.guestName)}</div></div>
+        <div class="item"><div class="k">Voucher No.</div><div class="v">${esc(data.vNo)}</div></div>
+        <div class="item"><div class="k">Date Issued</div><div class="v">${esc(data.vDate)}</div></div>
+        <div class="item"><div class="k">Guest Name</div><div class="v">${esc(data.guestName)}</div></div>
         <div class="item"><div class="k">Nationality</div><div class="v">${esc(data.nationality)}</div></div>
       </div>
       ${paxHtml}
       ${makkahHtml}
       ${madinahHtml}
       ${transportHtml}
-      <div class="sechead">Terms &amp; conditions</div>
+      ${flightHtml}
+      <div class="sechead">Terms &amp; Conditions</div>
       <ol class="terms">${termsHtml}</ol>
-      <div class="contact">
-        <span class="lbl">${esc(data.contactHead)}</span>
-        <span class="num">${esc(data.contactName)}: ${esc(data.contactNum)}</span>
-      </div>
+      ${contactHtml}
     </div>
     <div class="foot">
       <div class="closing">${esc(data.closing)}</div>
@@ -790,20 +988,25 @@ $('newBtn').addEventListener('click', () => {
   $('agencyName').value = 'KARWAN E MARHABA TRAVEL & TOURS';
   $('agencyAddress').value = 'Near Kanzul Eiman Masjid, Dhak Road, Sukkur';
   $('phone1').value = '071-5620922'; $('phone2').value = '0315-3470898';
-  $('toName').value = ''; $('vNo').value = ''; $('guestName').value = ''; $('nationality').value = 'Pakistan';
+  $('fromName').value = 'Karwan e Marhaba';
+  $('vNo').value = ''; $('guestName').value = ''; $('nationality').value = 'Pakistan';
   $('makkahHotel').value = ''; $('madinahHotel').value = '';
-  $('contactHead').value = 'Contact (Only For Makkah Staff)';
-  $('contactName').value = ''; $('contactNum').value = '';
+  $('makkahContactLabel').value = 'Contact (Makkah Staff Only)';
+  $('makkahContactName').value = ''; $('makkahContactNum').value = '';
+  $('madinahContactLabel').value = 'Contact (Madinah Staff Only)';
+  $('madinahContactName').value = ''; $('madinahContactNum').value = '';
   $('closing').value = 'Thank You and Best Regards'; $('closing2').value = '';
   $('status').value = 'Confirmed'; $('status').dispatchEvent(new Event('change'));
   $('makkahEnabled').checked = true; $('makkahEnabled').dispatchEvent(new Event('change'));
   $('madinahEnabled').checked = false; $('madinahEnabled').dispatchEvent(new Event('change'));
   $('transportEnabled').checked = false; $('transportEnabled').dispatchEvent(new Event('change'));
+  $('flightEnabled').checked = false; $('flightEnabled').dispatchEvent(new Event('change'));
+  $('madinahContactEnabled').checked = false; $('madinahContactEnabled').dispatchEvent(new Event('change'));
   makkahRows = [{hcn:'',checkin:'',checkout:'',nights:'',roomType:'',pax:'',rooms:'',meal:''}];
-  madinahRows = []; transportRows = [];
+  madinahRows = []; transportRows = []; depFlights = []; retFlights = [];
   passengers = [{name:'',passport:'',type:'Adult'}];
   terms = ['KSA hotel standard check-in / check-out times: Check-in 16:00, Check-out 12:00 (Noon).'];
-  binds.forEach(([i]) => $(i).dispatchEvent(new Event('input')));
+  binds.forEach(([i]) => { const el = $(i); if(el) el.dispatchEvent(new Event('input')); });
   $('o-makkahHotelName').textContent = ''; $('o-madinahHotelName').textContent = '';
   renderPax(); renderPaxTable();
   renderBookingRows(makkahRows,'makkahRowsList','o-makkah-tbody');
@@ -811,6 +1014,9 @@ $('newBtn').addEventListener('click', () => {
   renderBookingRows(madinahRows,'madinahRowsList','o-madinah-tbody','#7a5010');
   renderBookingTable(madinahRows,'o-madinah-tbody');
   renderTransport(); renderTransportTable();
+  renderFlightRows(depFlights,'depFlightList');
+  renderFlightRows(retFlights,'retFlightList');
+  renderFlightTables();
   renderTermsEditor(); renderTermsPreview();
   refreshQR();
 });
@@ -823,6 +1029,9 @@ renderBookingTable(makkahRows,'o-makkah-tbody');
 renderBookingRows(madinahRows,'madinahRowsList','o-madinah-tbody','#7a5010');
 renderBookingTable(madinahRows,'o-madinah-tbody');
 renderTransport(); renderTransportTable();
+renderFlightRows(depFlights,'depFlightList');
+renderFlightRows(retFlights,'retFlightList');
+renderFlightTables();
 renderTermsEditor(); renderTermsPreview();
 refreshQR();
 </script>
