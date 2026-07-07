@@ -44,6 +44,13 @@ body{font-family:var(--font-ui);background:var(--bg);color:var(--ink);font-size:
 .logo-upload-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:2px}
 .logo-fname{font-size:.7rem;color:var(--ink-3);font-style:italic}
 .hotel-card{background:#f5f9f8;border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:12px}
+.hotel-entry{background:#fff;border:1px solid var(--border);border-radius:8px;padding:10px;margin-bottom:10px}
+.hotel-entry:last-child{margin-bottom:0}
+.hotel-entry-head{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.hotel-entry-head input{flex:1;border:1px solid var(--border);border-radius:5px;padding:7px 9px;font-size:.85rem;font-family:var(--font-ui);background:#f9fbfb;outline:none;font-weight:600}
+.hotel-entry-head input:focus{border-color:var(--green-mid);background:#fff}
+.hotel-remove-btn{background:none;border:1px solid var(--border);border-radius:5px;padding:6px 9px;font-size:.68rem;color:#b03030;cursor:pointer;font-weight:600;white-space:nowrap;flex-shrink:0}
+.hotel-remove-btn:hover{background:#fce8e8;border-color:#e0a0a0}
 .toggle-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
 .toggle-label{font-size:.72rem;font-weight:600;color:var(--ink-2)}
 .toggle{position:relative;display:inline-block;width:38px;height:20px}
@@ -67,7 +74,7 @@ input:checked+.toggle-slider::before{transform:translateX(18px)}
 /* Flight rows */
 .flight-row{display:grid;grid-template-columns:.8fr .7fr .8fr .7fr .7fr 22px;gap:5px;align-items:center;background:#fff;border:1px solid var(--border);border-radius:6px;padding:7px 5px;margin-bottom:6px}
 .flight-row input,.flight-row select{width:100%;border:1px solid var(--border);border-radius:4px;padding:5px;font-size:.76rem;background:#fff;outline:none;min-width:0;font-family:monospace}
-.flight-head{display:grid;grid-template-columns:.8fr .7fr .8fr .7fr .7fr 22px;gap:5px;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);padding:0 4px 5px}
+.flight-head{display:grid;grid-template-columns:.8fr .7fr .8fr .7fr .7fr 22px;gap:5px;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);padding:0 4px 5px}
 /* Passengers */
 .pax-row{background:#fff;border:1px solid var(--border);border-radius:6px;padding:8px;margin-bottom:8px}
 .pax-row-top{display:grid;grid-template-columns:2fr 1.5fr 1fr 22px;gap:6px;align-items:center;margin-bottom:0}
@@ -111,11 +118,13 @@ input:checked+.toggle-slider::before{transform:translateX(18px)}
 .v-sec-head{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--green);margin-bottom:8px;display:flex;align-items:center;gap:8px}
 .v-sec-head::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0}
 .v-sec-head::after{content:'';flex:1;height:1px;background:var(--border)}
-.v-city-badge{display:inline-flex;align-items:center;gap:4px;font-size:.62rem;font-weight:700;padding:2px 8px;border-radius:10px;margin-left:8px;text-transform:uppercase;letter-spacing:.05em}
+.v-city-badge{display:inline-flex;align-items:center;gap:4px;font-size:.68rem;font-weight:700;padding:3px 10px;border-radius:10px;text-transform:uppercase;letter-spacing:.04em}
 .v-city-badge.makkah{background:#d6ece9;color:#1a5c52}
 .v-city-badge.madinah{background:#fdf0d6;color:#7a5010}
 .v-city-badge.transport{background:#dde2f5;color:#2c3e6b}
 .v-city-badge.flight{background:#e8dff5;color:#4a1d8c}
+.v-hotel-block{margin-bottom:16px}
+.v-hotel-block:last-child{margin-bottom:0}
 .v-table{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:.74rem}
 .v-table thead th{background:var(--green);color:#fff;font-size:.6rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:7px 6px;text-align:left}
 .v-table thead th:first-child{border-radius:6px 0 0 0}
@@ -191,6 +200,7 @@ input:checked+.toggle-slider::before{transform:translateX(18px)}
   .v-table thead,.v-pax-table thead,.v-flight-table-simple thead{page-break-inside:avoid}
   .v-table tbody tr,.v-pax-table tbody tr{page-break-inside:avoid}
   .v-flight-block{page-break-inside:avoid}
+  .v-hotel-block{page-break-inside:avoid}
   .v-table thead th,.v-table-madinah thead th,.v-table-transport thead th{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .v-pax-table thead th{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .v-flight-label{-webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -273,8 +283,21 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
       </button>
     </div>
 
-    <!-- Makkah Hotel -->
+    <!-- Section Order -->
     <div class="section">
+      <div class="sec-title">🔀 Section Order</div>
+      <div class="field">
+        <label>Which city appears first in the voucher?</label>
+        <select id="cityOrder">
+          <option value="makkah-first" selected>Makkah first, then Madinah</option>
+          <option value="madinah-first">Madinah first, then Makkah</option>
+        </select>
+        <span class="hint">Yeh order voucher aur tracking page dono men apply hoga.</span>
+      </div>
+    </div>
+
+    <!-- Makkah Hotel -->
+    <div class="section" id="makkahEditSection">
       <div class="sec-title">🕋 Makkah Hotel</div>
       <div class="hotel-card">
         <div class="toggle-row">
@@ -282,19 +305,17 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
           <span class="toggle-label">Include Makkah Hotel</span>
         </div>
         <div id="makkahFields">
-          <div class="field"><label>Hotel Name</label><input id="makkahHotel" value="Fajr Al Badea 4"></div>
-          <div class="booking-head-mak"><span>HCN</span><span>Check-in</span><span>Check-out</span><span>Nts</span><span>Room Type</span><span>Pax</span><span>Rms</span><span>Meal</span><span></span></div>
-          <div id="makkahRowsList" class="rows-list"></div>
-          <button class="btn-add" id="addMakkahRow">
+          <div id="makkahHotelsList"></div>
+          <button class="btn-add" id="addMakkahHotel">
             <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-            Add Makkah Booking Row
+            Add Another Makkah Hotel
           </button>
         </div>
       </div>
     </div>
 
     <!-- Madinah Hotel -->
-    <div class="section">
+    <div class="section" id="madinahEditSection">
       <div class="sec-title">🕌 Madinah Hotel</div>
       <div class="hotel-card">
         <div class="toggle-row">
@@ -302,12 +323,10 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
           <span class="toggle-label">Include Madinah Hotel</span>
         </div>
         <div id="madinahFields" class="hidden">
-          <div class="field"><label>Hotel Name</label><input id="madinahHotel" value=""></div>
-          <div class="booking-head-mak"><span>HCN</span><span>Check-in</span><span>Check-out</span><span>Nts</span><span>Room Type</span><span>Pax</span><span>Rms</span><span>Meal</span><span></span></div>
-          <div id="madinahRowsList" class="rows-list"></div>
-          <button class="btn-add" id="addMadinahRow">
+          <div id="madinahHotelsList"></div>
+          <button class="btn-add" id="addMadinahHotel">
             <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-            Add Madinah Booking Row
+            Add Another Madinah Hotel
           </button>
         </div>
       </div>
@@ -342,7 +361,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
         </div>
         <div id="flightFields" class="hidden">
           <div style="font-size:.7rem;font-weight:700;color:#4a1d8c;margin-bottom:4px;letter-spacing:.04em;">🛫 Departure</div>
-          <div class="hint" style="margin-bottom:6px;display:block;">Example: PK 731 10JUL KHI JED 1010 1220</div>
+          <div class="hint" style="margin-bottom:6px;display:block;">Example: PK 731 10JUL KHI JED 1010 1220 — agar arrival time departure time se kam ho to arrival date par khud "+1" lag jayega.</div>
           <div class="flight-head"><span>Flight</span><span>Date</span><span>Sector</span><span>Dep Time</span><span>Arr Time</span><span></span></div>
           <div id="depFlightList"></div>
           <button class="btn-add" id="addDepFlight" style="margin-bottom:14px;">
@@ -437,14 +456,14 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 
       <!-- Makkah Hotel Preview -->
       <div id="o-makkah-section">
-        <div class="v-sec-head">🕋 Makkah Hotel<span class="v-city-badge makkah" id="o-makkahHotelName">Hotel Name</span></div>
-        <table class="v-table"><thead><tr><th>#</th><th>HCN</th><th>Check-in</th><th>Check-out</th><th>Nights</th><th>Room Type</th><th>Pax</th><th>Rooms</th><th>Meal</th></tr></thead><tbody id="o-makkah-tbody"></tbody></table>
+        <div class="v-sec-head">🕋 Makkah Hotel</div>
+        <div id="o-makkah-content"></div>
       </div>
 
       <!-- Madinah Hotel Preview -->
       <div id="o-madinah-section" class="hidden">
-        <div class="v-sec-head">🕌 Madinah Hotel<span class="v-city-badge madinah" id="o-madinahHotelName">Hotel Name</span></div>
-        <table class="v-table v-table-madinah"><thead><tr><th>#</th><th>HCN</th><th>Check-in</th><th>Check-out</th><th>Nights</th><th>Room Type</th><th>Pax</th><th>Rooms</th><th>Meal</th></tr></thead><tbody id="o-madinah-tbody"></tbody></table>
+        <div class="v-sec-head">🕌 Madinah Hotel</div>
+        <div id="o-madinah-content"></div>
       </div>
 
       <!-- Transport Preview -->
@@ -515,20 +534,27 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 
 <script>
 // ===================== STATE =====================
-let makkahRows = [{hcn:'55840-1',checkin:'2026-07-06',checkout:'2026-07-08',nights:2,roomType:'Triple',pax:3,rooms:1,meal:'R/O'}];
-let madinahRows = [];
+let makkahHotels = [{name:'Fajr Al Badea 4', rows:[{hcn:'55840-1',checkin:'2026-07-06',checkout:'2026-07-08',nights:2,roomType:'Triple',pax:3,rooms:1,meal:'R/O'}]}];
+let madinahHotels = [];
 let transportRows = [];
 let depFlights = [];
 let retFlights = [];
 let passengers = [{name:'Syed Muhammad Minhajuddin',passport:'AB1234567',type:'Adult'}];
 let terms = ['KSA hotel standard check-in / check-out times: Check-in 16:00, Check-out 12:00 (Noon).','If you choose the transport visa, you must travel using their bus; if you use any other transport, you will be responsible for any penalties.','If there is an issue with check-in or room due to rush at the hotels, we will provide a similar or upgraded hotel; please remain patient in such situations.','We assure you the best services and look forward to welcoming you.'];
 let logoUrl = null;
+let cityOrder = 'makkah-first';
 
 const $ = id => document.getElementById(id);
 const esc = s => { const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML };
 const fmtDate = iso => { if (!iso) return ''; const [y, m, d] = iso.split('-'); return `${d}-${m}-${y.slice(2)}` };
 const calcN = (a, b) => { if (!a || !b) return ''; const n = Math.round((new Date(b) - new Date(a)) / 86400000); return n > 0 ? n : '' };
 const slug = s => (s || 'voucher').toString().trim().replace(/[^a-zA-Z0-9-_]+/g, '-').replace(/^-+|-+$/g, '') || 'voucher';
+const isNextDayArrival = (depTime, arrTime) => {
+  const d = parseInt((depTime || '').replace(/\D/g, ''), 10);
+  const a = parseInt((arrTime || '').replace(/\D/g, ''), 10);
+  if (isNaN(d) || isNaN(a)) return false;
+  return a < d;
+};
 
 // ===================== BASIC BINDS =====================
 const binds = [
@@ -555,8 +581,19 @@ oDate.textContent = fmtDate(vDate.value);
 const statusEl = $('status'), oStatus = $('o-status');
 statusEl.addEventListener('change', () => { oStatus.textContent = statusEl.value; refreshQR(); });
 
-$('makkahHotel').addEventListener('input', () => { $('o-makkahHotelName').textContent = $('makkahHotel').value; refreshQR(); });
-$('madinahHotel').addEventListener('input', () => { $('o-madinahHotelName').textContent = $('madinahHotel').value; refreshQR(); });
+// ===================== SECTION ORDER =====================
+function applySectionOrder(){
+  const makkahPrev = $('o-makkah-section'), madinahPrev = $('o-madinah-section');
+  const pParent = makkahPrev.parentNode;
+  if (cityOrder === 'madinah-first') pParent.insertBefore(madinahPrev, makkahPrev);
+  else pParent.insertBefore(makkahPrev, madinahPrev);
+
+  const makkahEdit = $('makkahEditSection'), madinahEdit = $('madinahEditSection');
+  const eParent = makkahEdit.parentNode;
+  if (cityOrder === 'madinah-first') eParent.insertBefore(madinahEdit, makkahEdit);
+  else eParent.insertBefore(makkahEdit, madinahEdit);
+}
+$('cityOrder').addEventListener('change', () => { cityOrder = $('cityOrder').value; applySectionOrder(); refreshQR(); });
 
 // ===================== TOGGLES =====================
 $('makkahEnabled').addEventListener('change', () => {
@@ -621,53 +658,107 @@ function renderPaxTable() {
 }
 $('addPax').addEventListener('click', () => { passengers.push({name:'',passport:'',type:'Adult'}); renderPax(); renderPaxTable(); refreshQR(); });
 
-// ===================== BOOKING ROWS =====================
-function makeBookingRow(r, i, rows, listId, tbodyId, hotelColor) {
+// ===================== HOTELS (Makkah / Madinah — multiple hotels each) =====================
+function blankRow() { return {hcn:'',checkin:'',checkout:'',nights:'',roomType:'',pax:'',rooms:'',meal:''}; }
+
+function makeHotelBookingRow(row, rIdx, rowsArr, hotels, containerId, cityKey) {
   const tpl = document.createElement('div');
   tpl.className = 'row-card-mak';
   tpl.innerHTML = `
-    <input type="text" data-k="hcn" value="${esc(r.hcn)}" placeholder="55840-1">
-    <input type="date" data-k="checkin" value="${r.checkin||''}">
-    <input type="date" data-k="checkout" value="${r.checkout||''}">
-    <input type="number" data-k="nights" value="${r.nights??''}" placeholder="2" min="0">
-    <input type="text" data-k="roomType" value="${esc(r.roomType)}" placeholder="Triple">
-    <input type="number" data-k="pax" value="${r.pax??''}" placeholder="3" min="0">
-    <input type="number" data-k="rooms" value="${r.rooms??''}" placeholder="1" min="0">
-    <input type="text" data-k="meal" value="${esc(r.meal)}" placeholder="R/O">
+    <input type="text" data-k="hcn" value="${esc(row.hcn)}" placeholder="55840-1">
+    <input type="date" data-k="checkin" value="${row.checkin||''}">
+    <input type="date" data-k="checkout" value="${row.checkout||''}">
+    <input type="number" data-k="nights" value="${row.nights??''}" placeholder="2" min="0">
+    <input type="text" data-k="roomType" value="${esc(row.roomType)}" placeholder="Triple">
+    <input type="number" data-k="pax" value="${row.pax??''}" placeholder="3" min="0">
+    <input type="number" data-k="rooms" value="${row.rooms??''}" placeholder="1" min="0">
+    <input type="text" data-k="meal" value="${esc(row.meal)}" placeholder="R/O">
     <button class="row-del" type="button"><svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>`;
   tpl.querySelectorAll('input').forEach(inp => {
     inp.addEventListener('input', () => {
       const k = inp.dataset.k; let v = inp.value;
       if (['nights','pax','rooms'].includes(k)) v = v === '' ? '' : Number(v);
-      rows[i][k] = v;
+      row[k] = v;
       if (k === 'checkin' || k === 'checkout') {
-        const n = calcN(rows[i].checkin, rows[i].checkout);
-        if (n !== '') { rows[i].nights = n; tpl.querySelector('[data-k="nights"]').value = n; }
+        const n = calcN(row.checkin, row.checkout);
+        if (n !== '') { row.nights = n; tpl.querySelector('[data-k="nights"]').value = n; }
       }
-      renderBookingTable(rows, tbodyId); refreshQR();
+      renderHotelsPreview(cityKey); refreshQR();
     });
   });
   tpl.querySelector('.row-del').addEventListener('click', () => {
-    rows.splice(i, 1);
-    renderBookingRows(rows, listId, tbodyId, hotelColor);
-    renderBookingTable(rows, tbodyId); refreshQR();
+    rowsArr.splice(rIdx, 1);
+    renderHotelsEditor(hotels, containerId, cityKey);
+    renderHotelsPreview(cityKey); refreshQR();
   });
   return tpl;
 }
-function renderBookingRows(rows, listId, tbodyId, hotelColor) {
-  const list = $(listId); list.innerHTML = '';
-  rows.forEach((r, i) => list.appendChild(makeBookingRow(r, i, rows, listId, tbodyId, hotelColor)));
-}
-function renderBookingTable(rows, tbodyId) {
-  const tbody = $(tbodyId); tbody.innerHTML = '';
-  rows.forEach((r, i) => {
-    const tr = document.createElement('tr');
-    tr.innerHTML = `<td>${i+1}</td><td class="hcn">${esc(r.hcn)}</td><td>${fmtDate(r.checkin)}</td><td>${fmtDate(r.checkout)}</td><td>${esc(String(r.nights??''))}</td><td>${esc(r.roomType)}</td><td>${esc(String(r.pax??''))}</td><td>${esc(String(r.rooms??''))}</td><td>${esc(r.meal)}</td>`;
-    tbody.appendChild(tr);
+
+function renderHotelsEditor(hotels, containerId, cityKey) {
+  const container = $(containerId);
+  container.innerHTML = '';
+  hotels.forEach((hotel, hIdx) => {
+    const block = document.createElement('div');
+    block.className = 'hotel-entry';
+    block.innerHTML = `
+      <div class="hotel-entry-head">
+        <input type="text" data-hk="name" value="${esc(hotel.name)}" placeholder="Hotel name">
+        <button class="hotel-remove-btn" type="button">Remove Hotel</button>
+      </div>
+      <div class="booking-head-mak"><span>HCN</span><span>Check-in</span><span>Check-out</span><span>Nts</span><span>Room Type</span><span>Pax</span><span>Rms</span><span>Meal</span><span></span></div>
+      <div class="rows-list"></div>
+      <button class="btn-add">
+        <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        Add Booking Row
+      </button>`;
+    const nameInp = block.querySelector('[data-hk="name"]');
+    nameInp.addEventListener('input', () => { hotel.name = nameInp.value; renderHotelsPreview(cityKey); refreshQR(); });
+
+    block.querySelector('.hotel-remove-btn').addEventListener('click', () => {
+      hotels.splice(hIdx, 1);
+      renderHotelsEditor(hotels, containerId, cityKey);
+      renderHotelsPreview(cityKey); refreshQR();
+    });
+
+    const rowsListEl = block.querySelector('.rows-list');
+    hotel.rows.forEach((row, rIdx) => {
+      rowsListEl.appendChild(makeHotelBookingRow(row, rIdx, hotel.rows, hotels, containerId, cityKey));
+    });
+
+    block.querySelector('.btn-add').addEventListener('click', () => {
+      hotel.rows.push(blankRow());
+      renderHotelsEditor(hotels, containerId, cityKey);
+      renderHotelsPreview(cityKey); refreshQR();
+    });
+
+    container.appendChild(block);
   });
 }
-$('addMakkahRow').addEventListener('click', () => { makkahRows.push({hcn:'',checkin:'',checkout:'',nights:'',roomType:'',pax:'',rooms:'',meal:''}); renderBookingRows(makkahRows,'makkahRowsList','o-makkah-tbody'); renderBookingTable(makkahRows,'o-makkah-tbody'); refreshQR(); });
-$('addMadinahRow').addEventListener('click', () => { madinahRows.push({hcn:'',checkin:'',checkout:'',nights:'',roomType:'',pax:'',rooms:'',meal:''}); renderBookingRows(madinahRows,'madinahRowsList','o-madinah-tbody','#7a5010'); renderBookingTable(madinahRows,'o-madinah-tbody'); refreshQR(); });
+
+function renderHotelsPreview(cityKey) {
+  const isMakkah = cityKey === 'makkah';
+  const hotels = isMakkah ? makkahHotels : madinahHotels;
+  const contentEl = $(isMakkah ? 'o-makkah-content' : 'o-madinah-content');
+  const badgeClass = isMakkah ? 'makkah' : 'madinah';
+  const tableClass = isMakkah ? 'v-table' : 'v-table v-table-madinah';
+  contentEl.innerHTML = hotels.map(hotel => `
+    <div class="v-hotel-block">
+      <div style="margin-bottom:6px;"><span class="v-city-badge ${badgeClass}">${esc(hotel.name || 'Hotel Name')}</span></div>
+      <table class="${tableClass}"><thead><tr><th>#</th><th>HCN</th><th>Check-in</th><th>Check-out</th><th>Nights</th><th>Room Type</th><th>Pax</th><th>Rooms</th><th>Meal</th></tr></thead>
+      <tbody>${hotel.rows.map((r,i)=>`<tr><td>${i+1}</td><td class="hcn">${esc(r.hcn)}</td><td>${fmtDate(r.checkin)}</td><td>${fmtDate(r.checkout)}</td><td>${esc(String(r.nights??''))}</td><td>${esc(r.roomType)}</td><td>${esc(String(r.pax??''))}</td><td>${esc(String(r.rooms??''))}</td><td>${esc(r.meal)}</td></tr>`).join('')}</tbody></table>
+    </div>`).join('');
+}
+
+$('addMakkahHotel').addEventListener('click', () => {
+  makkahHotels.push({name:'', rows:[blankRow()]});
+  renderHotelsEditor(makkahHotels, 'makkahHotelsList', 'makkah');
+  renderHotelsPreview('makkah'); refreshQR();
+});
+$('addMadinahHotel').addEventListener('click', () => {
+  madinahHotels.push({name:'', rows:[blankRow()]});
+  renderHotelsEditor(madinahHotels, 'madinahHotelsList', 'madinah');
+  renderHotelsPreview('madinah'); refreshQR();
+});
 
 // ===================== TRANSPORT =====================
 function renderTransport() {
@@ -724,7 +815,9 @@ function renderFlightRows(arr, listId) {
   arr.forEach((f, i) => list.appendChild(makeFlightRow(f, i, arr, listId)));
 }
 function flightRowHTML(f) {
-  return `<tr><td>${esc(f.flight)}</td><td>${esc(f.sector)}</td><td>${esc(f.date)} ${esc(f.depTime)}</td><td>${esc(f.date)} ${esc(f.arrTime)}</td></tr>`;
+  const nextDay = isNextDayArrival(f.depTime, f.arrTime);
+  const arrDateDisp = esc(f.date) + (nextDay ? ' <span style="color:#b8860b;font-weight:700;">+1</span>' : '');
+  return `<tr><td>${esc(f.flight)}</td><td>${esc(f.sector)}</td><td>${esc(f.date)} ${esc(f.depTime)}</td><td>${arrDateDisp} ${esc(f.arrTime)}</td></tr>`;
 }
 function renderFlightTables() {
   const depTbody = $('o-dep-flight-tbody'); depTbody.innerHTML = depFlights.map(flightRowHTML).join('');
@@ -789,14 +882,14 @@ $('printBtn').addEventListener('click', () => window.print());
 
 // ===================== TRACKING PAGE BUILD =====================
 function buildTrackingPageHTML() {
-  const makkahOn = $('madinahContactEnabled').checked;
   const data = {
     agencyName: $('agencyName').value, agencyAddress: $('agencyAddress').value,
     phone1: $('phone1').value, phone2: $('phone2').value,
     vDate: fmtDate(vDate.value), vNo: $('vNo').value, fromName: $('fromName').value, status: statusEl.value,
     guestName: $('guestName').value, nationality: $('nationality').value,
-    makkahEnabled: $('makkahEnabled').checked, makkahHotel: $('makkahHotel').value,
-    madinahEnabled: $('madinahEnabled').checked, madinahHotel: $('madinahHotel').value,
+    cityOrder: cityOrder,
+    makkahEnabled: $('makkahEnabled').checked,
+    madinahEnabled: $('madinahEnabled').checked,
     transportEnabled: $('transportEnabled').checked,
     flightEnabled: $('flightEnabled').checked,
     makkahContactLabel: $('makkahContactLabel').value,
@@ -805,8 +898,8 @@ function buildTrackingPageHTML() {
     madinahContactLabel: $('madinahContactLabel').value,
     madinahContactName: $('madinahContactName').value, madinahContactNum: $('madinahContactNum').value,
     closing: $('closing').value, closing2: $('closing2').value,
-    makkahRows: makkahRows.map(r => ({...r, checkinF: fmtDate(r.checkin), checkoutF: fmtDate(r.checkout)})),
-    madinahRows: madinahRows.map(r => ({...r, checkinF: fmtDate(r.checkin), checkoutF: fmtDate(r.checkout)})),
+    makkahHotels: makkahHotels.map(h => ({ name: h.name, rows: h.rows.map(r => ({...r, checkinF: fmtDate(r.checkin), checkoutF: fmtDate(r.checkout)})) })),
+    madinahHotels: madinahHotels.map(h => ({ name: h.name, rows: h.rows.map(r => ({...r, checkinF: fmtDate(r.checkin), checkoutF: fmtDate(r.checkout)})) })),
     transportRows: transportRows.map(t => ({...t, dateF: fmtDate(t.date)})),
     depFlights: depFlights, retFlights: retFlights,
     passengers: passengers,
@@ -821,20 +914,31 @@ function buildTrackingPageHTML() {
     ${data.passengers.map((p,i)=>`<tr><td>${i+1}</td><td>${esc(p.name)}</td><td class="ppno">${esc(p.passport)}</td><td>${esc(p.type)}</td></tr>`).join('')}
     </tbody></table>` : '';
 
-  const makkahHtml = data.makkahEnabled && data.makkahRows.length ? `
-    <div class="sechead">🕋 Makkah Hotel — <span style="font-weight:700;color:#1a5c52">${esc(data.makkahHotel)}</span></div>
-    ${data.makkahRows.map(r=>`<div class="seg"><div class="seg-top"><span class="seg-hotel">HCN ${esc(r.hcn)}</span><span class="seg-city mak">${esc(r.roomType||'')}</span></div><div class="seg-rows"><span>Check-in <b>${esc(r.checkinF)}</b></span><span>Check-out <b>${esc(r.checkoutF)}</b></span><span>Nights <b>${esc(String(r.nights??''))}</b></span><span>Pax <b>${esc(String(r.pax??''))}</b></span><span>Rooms <b>${esc(String(r.rooms??''))}</b></span><span>Meal <b>${esc(r.meal)}</b></span></div></div>`).join('')}` : '';
+  function hotelsBlockHtml(hotels, enabled, sectionTitle, segClass, badgeClass, headColor) {
+    if (!enabled || !hotels.length) return '';
+    return `
+    <div class="sechead">${sectionTitle}</div>
+    ${hotels.map(hotel => `
+      <div style="font-weight:700;color:${headColor};font-size:.85rem;margin:10px 0 6px;">${esc(hotel.name || 'Hotel')}</div>
+      ${hotel.rows.map(r=>`<div class="seg ${segClass}"><div class="seg-top"><span class="seg-hotel">HCN ${esc(r.hcn)}</span><span class="seg-city ${badgeClass}">${esc(r.roomType||'')}</span></div><div class="seg-rows"><span>Check-in <b>${esc(r.checkinF)}</b></span><span>Check-out <b>${esc(r.checkoutF)}</b></span><span>Nights <b>${esc(String(r.nights??''))}</b></span><span>Pax <b>${esc(String(r.pax??''))}</b></span><span>Rooms <b>${esc(String(r.rooms??''))}</b></span><span>Meal <b>${esc(r.meal)}</b></span></div></div>`).join('')}
+    `).join('')}`;
+  }
 
-  const madinahHtml = data.madinahEnabled && data.madinahRows.length ? `
-    <div class="sechead">🕌 Madinah Hotel — <span style="font-weight:700;color:#7a5010">${esc(data.madinahHotel)}</span></div>
-    ${data.madinahRows.map(r=>`<div class="seg mad"><div class="seg-top"><span class="seg-hotel">HCN ${esc(r.hcn)}</span><span class="seg-city mad-c">${esc(r.roomType||'')}</span></div><div class="seg-rows"><span>Check-in <b>${esc(r.checkinF)}</b></span><span>Check-out <b>${esc(r.checkoutF)}</b></span><span>Nights <b>${esc(String(r.nights??''))}</b></span><span>Pax <b>${esc(String(r.pax??''))}</b></span><span>Rooms <b>${esc(String(r.rooms??''))}</b></span><span>Meal <b>${esc(r.meal)}</b></span></div></div>`).join('')}` : '';
+  const makkahHtml = hotelsBlockHtml(data.makkahHotels, data.makkahEnabled, `🕋 Makkah Hotel${data.makkahHotels.length>1?'s':''}`, '', 'mak', '#1a5c52');
+  const madinahHtml = hotelsBlockHtml(data.madinahHotels, data.madinahEnabled, `🕌 Madinah Hotel${data.madinahHotels.length>1?'s':''}`, 'mad', 'mad-c', '#7a5010');
+  const hotelSectionsHtml = data.cityOrder === 'madinah-first' ? (madinahHtml + makkahHtml) : (makkahHtml + madinahHtml);
 
   const transportHtml = data.transportEnabled && data.transportRows.length ? `
     <div class="sechead">🚌 Transport Details</div>
     ${data.transportRows.map((t,i)=>`<div class="seg trn"><div class="seg-top"><span class="seg-hotel">${i+1}. ${esc(t.route)}</span><span class="seg-city trn-c">${esc(t.type)}</span></div><div class="seg-rows"><span>Date <b>${esc(t.dateF)}</b></span><span>Time <b>${esc(t.time)}</b></span></div></div>`).join('')}` : '';
 
-  const depRows = data.depFlights.map(f=>`<tr><td>${esc(f.flight)}</td><td>${esc(f.sector)}</td><td>${esc(f.date)} ${esc(f.depTime)}</td><td>${esc(f.date)} ${esc(f.arrTime)}</td></tr>`).join('');
-  const retRows = data.retFlights.map(f=>`<tr><td>${esc(f.flight)}</td><td>${esc(f.sector)}</td><td>${esc(f.date)} ${esc(f.depTime)}</td><td>${esc(f.date)} ${esc(f.arrTime)}</td></tr>`).join('');
+  function trackFlightRowHTML(f) {
+    const nextDay = isNextDayArrival(f.depTime, f.arrTime);
+    const arrDateDisp = esc(f.date) + (nextDay ? ' <b style="color:#c9a227">+1</b>' : '');
+    return `<tr><td>${esc(f.flight)}</td><td>${esc(f.sector)}</td><td>${esc(f.date)} ${esc(f.depTime)}</td><td>${arrDateDisp} ${esc(f.arrTime)}</td></tr>`;
+  }
+  const depRows = data.depFlights.map(trackFlightRowHTML).join('');
+  const retRows = data.retFlights.map(trackFlightRowHTML).join('');
   const flightHtml = data.flightEnabled && (data.depFlights.length || data.retFlights.length) ? `
     <div class="sechead">✈️ Flight Details</div>
     <div class="flight-wrap">
@@ -953,8 +1057,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);min-he
         <div class="item"><div class="k">Nationality</div><div class="v">${esc(data.nationality)}</div></div>
       </div>
       ${paxHtml}
-      ${makkahHtml}
-      ${madinahHtml}
+      ${hotelSectionsHtml}
       ${transportHtml}
       ${flightHtml}
       <div class="sechead">Terms &amp; Conditions</div>
@@ -990,7 +1093,6 @@ $('newBtn').addEventListener('click', () => {
   $('phone1').value = '071-5620922'; $('phone2').value = '0315-3470898';
   $('fromName').value = 'Karwan e Marhaba';
   $('vNo').value = ''; $('guestName').value = ''; $('nationality').value = 'Pakistan';
-  $('makkahHotel').value = ''; $('madinahHotel').value = '';
   $('makkahContactLabel').value = 'Contact (Makkah Staff Only)';
   $('makkahContactName').value = ''; $('makkahContactNum').value = '';
   $('madinahContactLabel').value = 'Contact (Madinah Staff Only)';
@@ -1002,17 +1104,17 @@ $('newBtn').addEventListener('click', () => {
   $('transportEnabled').checked = false; $('transportEnabled').dispatchEvent(new Event('change'));
   $('flightEnabled').checked = false; $('flightEnabled').dispatchEvent(new Event('change'));
   $('madinahContactEnabled').checked = false; $('madinahContactEnabled').dispatchEvent(new Event('change'));
-  makkahRows = [{hcn:'',checkin:'',checkout:'',nights:'',roomType:'',pax:'',rooms:'',meal:''}];
-  madinahRows = []; transportRows = []; depFlights = []; retFlights = [];
+  $('cityOrder').value = 'makkah-first'; cityOrder = 'makkah-first'; applySectionOrder();
+  makkahHotels = [{name:'', rows:[blankRow()]}];
+  madinahHotels = []; transportRows = []; depFlights = []; retFlights = [];
   passengers = [{name:'',passport:'',type:'Adult'}];
   terms = ['KSA hotel standard check-in / check-out times: Check-in 16:00, Check-out 12:00 (Noon).'];
   binds.forEach(([i]) => { const el = $(i); if(el) el.dispatchEvent(new Event('input')); });
-  $('o-makkahHotelName').textContent = ''; $('o-madinahHotelName').textContent = '';
   renderPax(); renderPaxTable();
-  renderBookingRows(makkahRows,'makkahRowsList','o-makkah-tbody');
-  renderBookingTable(makkahRows,'o-makkah-tbody');
-  renderBookingRows(madinahRows,'madinahRowsList','o-madinah-tbody','#7a5010');
-  renderBookingTable(madinahRows,'o-madinah-tbody');
+  renderHotelsEditor(makkahHotels, 'makkahHotelsList', 'makkah');
+  renderHotelsPreview('makkah');
+  renderHotelsEditor(madinahHotels, 'madinahHotelsList', 'madinah');
+  renderHotelsPreview('madinah');
   renderTransport(); renderTransportTable();
   renderFlightRows(depFlights,'depFlightList');
   renderFlightRows(retFlights,'retFlightList');
@@ -1022,17 +1124,17 @@ $('newBtn').addEventListener('click', () => {
 });
 
 // ===================== INIT =====================
-$('o-makkahHotelName').textContent = $('makkahHotel').value;
 renderPax(); renderPaxTable();
-renderBookingRows(makkahRows,'makkahRowsList','o-makkah-tbody');
-renderBookingTable(makkahRows,'o-makkah-tbody');
-renderBookingRows(madinahRows,'madinahRowsList','o-madinah-tbody','#7a5010');
-renderBookingTable(madinahRows,'o-madinah-tbody');
+renderHotelsEditor(makkahHotels, 'makkahHotelsList', 'makkah');
+renderHotelsPreview('makkah');
+renderHotelsEditor(madinahHotels, 'madinahHotelsList', 'madinah');
+renderHotelsPreview('madinah');
 renderTransport(); renderTransportTable();
 renderFlightRows(depFlights,'depFlightList');
 renderFlightRows(retFlights,'retFlightList');
 renderFlightTables();
 renderTermsEditor(); renderTermsPreview();
+applySectionOrder();
 refreshQR();
 </script>
 </body>
