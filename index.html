@@ -394,8 +394,14 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
     <div class="section">
       <div class="sec-title">Contact &amp; Sign-off</div>
       <div style="font-size:.72rem;font-weight:700;color:var(--green);margin-bottom:6px;letter-spacing:.04em;">🕋 Makkah Contact</div>
-      <div class="field"><label>Makkah Contact Label</label><input id="makkahContactLabel" value="Contact (Makkah Staff Only)"></div>
-      <div class="row2"><div class="field"><label>Makkah Contact Name</label><input id="makkahContactName" value="Haris"></div><div class="field"><label>Makkah Contact Number</label><input id="makkahContactNum" value="0580652033"></div></div>
+      <div class="toggle-row" style="margin-bottom:6px;">
+        <label class="toggle"><input type="checkbox" id="makkahContactEnabled" checked><span class="toggle-slider"></span></label>
+        <span class="toggle-label">Include Makkah Contact</span>
+      </div>
+      <div id="makkahContactFields">
+        <div class="field"><label>Makkah Contact Label</label><input id="makkahContactLabel" value="Contact (Makkah Staff Only)"></div>
+        <div class="row2"><div class="field"><label>Makkah Contact Name</label><input id="makkahContactName" value="Haris"></div><div class="field"><label>Makkah Contact Number</label><input id="makkahContactNum" value="0580652033"></div></div>
+      </div>
       <div style="font-size:.72rem;font-weight:700;color:#7a5010;margin:10px 0 6px;letter-spacing:.04em;">🕌 Madinah Contact</div>
       <div class="toggle-row" style="margin-bottom:6px;">
         <label class="toggle"><input type="checkbox" id="madinahContactEnabled"><span class="toggle-slider"></span></label>
@@ -614,6 +620,12 @@ $('transportEnabled').addEventListener('change', () => {
 $('flightEnabled').addEventListener('change', () => {
   $('flightFields').classList.toggle('hidden', !$('flightEnabled').checked);
   $('o-flight-section').classList.toggle('hidden', !$('flightEnabled').checked);
+  refreshQR();
+});
+$('makkahContactEnabled').addEventListener('change', () => {
+  const on = $('makkahContactEnabled').checked;
+  $('makkahContactFields').classList.toggle('hidden', !on);
+  $('o-makkah-contact-card').style.display = on ? '' : 'none';
   refreshQR();
 });
 $('madinahContactEnabled').addEventListener('change', () => {
@@ -892,6 +904,7 @@ function buildTrackingPageHTML() {
     madinahEnabled: $('madinahEnabled').checked,
     transportEnabled: $('transportEnabled').checked,
     flightEnabled: $('flightEnabled').checked,
+    makkahContactEnabled: $('makkahContactEnabled').checked,
     makkahContactLabel: $('makkahContactLabel').value,
     makkahContactName: $('makkahContactName').value, makkahContactNum: $('makkahContactNum').value,
     madinahContactEnabled: $('madinahContactEnabled').checked,
@@ -948,11 +961,11 @@ function buildTrackingPageHTML() {
 
   const contactHtml = `
     <div class="contact-dual">
-      <div class="contact-card mak-card">
+      ${data.makkahContactEnabled ? `<div class="contact-card mak-card">
         <div class="c-lbl">${esc(data.makkahContactLabel)}</div>
         <div class="c-name">${esc(data.makkahContactName)}</div>
         <div class="c-num">${esc(data.makkahContactNum)}</div>
-      </div>
+      </div>` : ''}
       ${data.madinahContactEnabled ? `<div class="contact-card mad-card">
         <div class="c-lbl">${esc(data.madinahContactLabel)}</div>
         <div class="c-name">${esc(data.madinahContactName)}</div>
@@ -1103,6 +1116,7 @@ $('newBtn').addEventListener('click', () => {
   $('madinahEnabled').checked = false; $('madinahEnabled').dispatchEvent(new Event('change'));
   $('transportEnabled').checked = false; $('transportEnabled').dispatchEvent(new Event('change'));
   $('flightEnabled').checked = false; $('flightEnabled').dispatchEvent(new Event('change'));
+  $('makkahContactEnabled').checked = true; $('makkahContactEnabled').dispatchEvent(new Event('change'));
   $('madinahContactEnabled').checked = false; $('madinahContactEnabled').dispatchEvent(new Event('change'));
   $('cityOrder').value = 'makkah-first'; cityOrder = 'makkah-first'; applySectionOrder();
   makkahHotels = [{name:'', rows:[blankRow()]}];
